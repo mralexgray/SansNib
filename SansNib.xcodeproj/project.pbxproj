@@ -1,0 +1,231 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ECE3B2171235F21B00406672 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE3B2161235F21B00406672 /* main.m */; };
+		ECE3B21C1235F25700406672 /* SansNib.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE3B21B1235F25700406672 /* SansNib.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ECE3B2001235F1B800406672 /* SansNib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SansNib.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ECE3B2031235F1B800406672 /* NiblessApplication-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NiblessApplication-Info.plist"; sourceTree = "<group>"; };
+		ECE3B2161235F21B00406672 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ECE3B21A1235F25700406672 /* SansNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SansNib.h; sourceTree = "<group>"; };
+		ECE3B21B1235F25700406672 /* SansNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SansNib.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ECE3B1FE1235F1B800406672 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ECE3B1F21235F1AA00406672 = {
+			isa = PBXGroup;
+			children = (
+				ECE3B21A1235F25700406672 /* SansNib.h */,
+				ECE3B21B1235F25700406672 /* SansNib.m */,
+				ECE3B2161235F21B00406672 /* main.m */,
+				ECE3B2011235F1B800406672 /* Products */,
+				ECE3B2081235F1C900406672 /* Resources */,
+			);
+			sourceTree = "<group>";
+		};
+		ECE3B2011235F1B800406672 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ECE3B2001235F1B800406672 /* SansNib.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ECE3B2081235F1C900406672 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				ECE3B2031235F1B800406672 /* NiblessApplication-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ECE3B1FF1235F1B800406672 /* SansNib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ECE3B2061235F1B800406672 /* Build configuration list for PBXNativeTarget "SansNib" */;
+			buildPhases = (
+				ECE3B1FC1235F1B800406672 /* Resources */,
+				ECE3B1FD1235F1B800406672 /* Sources */,
+				ECE3B1FE1235F1B800406672 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SansNib;
+			productName = NiblessApplication;
+			productReference = ECE3B2001235F1B800406672 /* SansNib.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ECE3B1F41235F1AA00406672 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = ECE3B1F71235F1AA00406672 /* Build configuration list for PBXProject "SansNib" */;
+			compatibilityVersion = "Xcode 2.4";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ECE3B1F21235F1AA00406672;
+			productRefGroup = ECE3B2011235F1B800406672 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ECE3B1FF1235F1B800406672 /* SansNib */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ECE3B1FC1235F1B800406672 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ECE3B1FD1235F1B800406672 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ECE3B2171235F21B00406672 /* main.m in Sources */,
+				ECE3B21C1235F25700406672 /* SansNib.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		ECE3B1F51235F1AA00406672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		ECE3B1F61235F1AA00406672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+			};
+			name = Release;
+		};
+		ECE3B2041235F1B800406672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1 = x86_64;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "NiblessApplication-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+					"-framework",
+					Cocoa,
+					"-framework",
+					AtoZ,
+					"-framework",
+					QuartzCore,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = SansNib;
+				SDKROOT = "";
+			};
+			name = Debug;
+		};
+		ECE3B2051235F1B800406672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1 = x86_64;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "NiblessApplication-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+					"-framework",
+					Cocoa,
+					"-framework",
+					AtoZ,
+					"-framework",
+					QuartzCore,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = SansNib;
+				SDKROOT = "";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ECE3B1F71235F1AA00406672 /* Build configuration list for PBXProject "SansNib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECE3B1F51235F1AA00406672 /* Debug */,
+				ECE3B1F61235F1AA00406672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECE3B2061235F1B800406672 /* Build configuration list for PBXNativeTarget "SansNib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECE3B2041235F1B800406672 /* Debug */,
+				ECE3B2051235F1B800406672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ECE3B1F41235F1AA00406672 /* Project object */;
+}

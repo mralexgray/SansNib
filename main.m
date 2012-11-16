@@ -20,12 +20,9 @@ int main(int argc, char *argv[])
 
 		// make sure the application singleton has been instantiated
 		NSApplication * application = [NSApplication sharedApplication];
-		
-		// instantiate our application delegate
-		SansNib * applicationDelegate = [[SansNib alloc] init];// autorelease];
-		[application setDelegate:(id)applicationDelegate];				// assign our delegate to the NSApplication
+//		SansNib* applicationDelegate =  alloc] init];
+		application.delegate = [SansNib new];
 
-		
 		// call the run method of our application
 		[application run];
 	

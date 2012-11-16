@@ -10,14 +10,15 @@
 #import <QuartzCore/QuartzCore.h>
 #import <AtoZ/AtoZ.h>
 
-#define aRect 		 NSInsetRect( [[NSScreen mainScreen]frame], 500, 300)
-#define standardMask NSTitledWindowMask | NSResizableWindowMask | NSClosableWindowMask
+#define kRect NSInsetRect( [[NSScreen mainScreen]frame], 500, 300)
+#define kMask NSTitledWindowMask | NSResizableWindowMask | NSClosableWindowMask
+
 
 @interface SansNib : NSObject <NSApplicationDelegate>
 
-@property (strong, nonatomic) NSWindow  *window;
-@property (strong, nonatomic) NSView    *view;
-@property (strong, nonatomic) CALayer  	*layer;
+@property (strong, nonatomic) NSW   	*window;
+@property (strong, nonatomic) BLKVIEW   *view;
+@property (strong, nonatomic) CAL  		*root;
 
 @end
 

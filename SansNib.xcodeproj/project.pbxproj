@@ -3,15 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B37573D163C4499003D52B7 /* LayerProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFDF4A3162D9C3400B0E149 /* LayerProperty.m */; };
 		ECE3B2171235F21B00406672 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE3B2161235F21B00406672 /* main.m */; };
 		ECE3B21C1235F25700406672 /* SansNib.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE3B21B1235F25700406672 /* SansNib.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B375793163CAC0D003D52B7 /* DynamicLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = DynamicLayer.h; sourceTree = "<group>"; };
+		7B375794163CAC0D003D52B7 /* DynamicLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicLayer.m; sourceTree = "<group>"; };
+		7BFDF4A3162D9C3400B0E149 /* LayerProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerProperty.m; sourceTree = "<group>"; };
 		ECE3B2001235F1B800406672 /* SansNib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SansNib.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECE3B2031235F1B800406672 /* NiblessApplication-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NiblessApplication-Info.plist"; sourceTree = "<group>"; };
 		ECE3B2161235F21B00406672 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -33,6 +37,8 @@
 		ECE3B1F21235F1AA00406672 = {
 			isa = PBXGroup;
 			children = (
+				7B375793163CAC0D003D52B7 /* DynamicLayer.h */,
+				7B375794163CAC0D003D52B7 /* DynamicLayer.m */,
 				ECE3B21A1235F25700406672 /* SansNib.h */,
 				ECE3B21B1235F25700406672 /* SansNib.m */,
 				ECE3B2161235F21B00406672 /* main.m */,
@@ -53,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				ECE3B2031235F1B800406672 /* NiblessApplication-Info.plist */,
+				7BFDF4A3162D9C3400B0E149 /* LayerProperty.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -82,8 +89,11 @@
 /* Begin PBXProject section */
 		ECE3B1F41235F1AA00406672 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
 			buildConfigurationList = ECE3B1F71235F1AA00406672 /* Build configuration list for PBXProject "SansNib" */;
-			compatibilityVersion = "Xcode 2.4";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -116,6 +126,7 @@
 			files = (
 				ECE3B2171235F21B00406672 /* main.m in Sources */,
 				ECE3B21C1235F25700406672 /* SansNib.m in Sources */,
+				7B37573D163C4499003D52B7 /* LayerProperty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,11 +151,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1 = x86_64;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -164,7 +174,6 @@
 					"-framework",
 					QuartzCore,
 				);
-				PREBINDING = NO;
 				PRODUCT_NAME = SansNib;
 				SDKROOT = "";
 			};
@@ -174,11 +183,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_64_BIT_PRE_XCODE_3_1 = x86_64;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
@@ -197,7 +205,6 @@
 					"-framework",
 					QuartzCore,
 				);
-				PREBINDING = NO;
 				PRODUCT_NAME = SansNib;
 				SDKROOT = "";
 				ZERO_LINK = NO;

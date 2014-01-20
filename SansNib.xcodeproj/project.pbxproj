@@ -7,82 +7,121 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B37573D163C4499003D52B7 /* LayerProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFDF4A3162D9C3400B0E149 /* LayerProperty.m */; };
-		ECE3B2171235F21B00406672 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE3B2161235F21B00406672 /* main.m */; };
-		ECE3B21C1235F25700406672 /* SansNib.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE3B21B1235F25700406672 /* SansNib.m */; };
+		7BBE68331823D65A0044B655 /* SansNib.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC10D89181EE56E0031D473 /* SansNib.dylib */; };
+		7BBE688F1823F9C90044B655 /* InjectionExtrasold.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBE68351823DC230044B655 /* InjectionExtrasold.m */; };
+		7BC10D4E181EE2210031D473 /* SansNibDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC10D4D181EE2210031D473 /* SansNibDemo.m */; };
+		7BC10DA9181EE5BD0031D473 /* SansNib.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC10D65181EE2B20031D473 /* SansNib.m */; };
+		7BC10DAA181EE5C00031D473 /* SansNib.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BC10D64181EE2B20031D473 /* SansNib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7BBE68311823D6510044B655 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ECE3B1F41235F1AA00406672 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7BC10D88181EE56E0031D473;
+			remoteInfo = SansNib;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		7B375793163CAC0D003D52B7 /* DynamicLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = DynamicLayer.h; sourceTree = "<group>"; };
-		7B375794163CAC0D003D52B7 /* DynamicLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicLayer.m; sourceTree = "<group>"; };
-		7BFDF4A3162D9C3400B0E149 /* LayerProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LayerProperty.m; sourceTree = "<group>"; };
-		ECE3B2001235F1B800406672 /* SansNib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SansNib.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		ECE3B2031235F1B800406672 /* NiblessApplication-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NiblessApplication-Info.plist"; sourceTree = "<group>"; };
-		ECE3B2161235F21B00406672 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		ECE3B21A1235F25700406672 /* SansNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SansNib.h; sourceTree = "<group>"; };
-		ECE3B21B1235F25700406672 /* SansNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SansNib.m; sourceTree = "<group>"; };
+		7BBE68341823DC230044B655 /* InjectionExtrasold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InjectionExtrasold.h; sourceTree = "<group>"; };
+		7BBE68351823DC230044B655 /* InjectionExtrasold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InjectionExtrasold.m; sourceTree = "<group>"; };
+		7BC10D48181EE2200031D473 /* SansNibDemo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SansNibDemo; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC10D4D181EE2210031D473 /* SansNibDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SansNibDemo.m; path = SansNibDemo/SansNibDemo.m; sourceTree = SOURCE_ROOT; };
+		7BC10D64181EE2B20031D473 /* SansNib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SansNib.h; sourceTree = "<group>"; };
+		7BC10D65181EE2B20031D473 /* SansNib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SansNib.m; sourceTree = "<group>"; };
+		7BC10D89181EE56E0031D473 /* SansNib.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = SansNib.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		ECE3B1FE1235F1B800406672 /* Frameworks */ = {
+		7BC10D45181EE2200031D473 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BBE68331823D65A0044B655 /* SansNib.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BBE68381823E35C0044B655 /* SansNib */ = {
+			isa = PBXGroup;
+			children = (
+				7BC10D64181EE2B20031D473 /* SansNib.h */,
+				7BC10D65181EE2B20031D473 /* SansNib.m */,
+				7BBE68341823DC230044B655 /* InjectionExtrasold.h */,
+				7BBE68351823DC230044B655 /* InjectionExtrasold.m */,
+			);
+			path = SansNib;
+			sourceTree = "<group>";
+		};
 		ECE3B1F21235F1AA00406672 = {
 			isa = PBXGroup;
 			children = (
-				7B375793163CAC0D003D52B7 /* DynamicLayer.h */,
-				7B375794163CAC0D003D52B7 /* DynamicLayer.m */,
-				ECE3B21A1235F25700406672 /* SansNib.h */,
-				ECE3B21B1235F25700406672 /* SansNib.m */,
-				ECE3B2161235F21B00406672 /* main.m */,
+				7BC10D4D181EE2210031D473 /* SansNibDemo.m */,
+				7BBE68381823E35C0044B655 /* SansNib */,
 				ECE3B2011235F1B800406672 /* Products */,
-				ECE3B2081235F1C900406672 /* Resources */,
 			);
 			sourceTree = "<group>";
 		};
 		ECE3B2011235F1B800406672 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ECE3B2001235F1B800406672 /* SansNib.app */,
+				7BC10D48181EE2200031D473 /* SansNibDemo */,
+				7BC10D89181EE56E0031D473 /* SansNib.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ECE3B2081235F1C900406672 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				ECE3B2031235F1B800406672 /* NiblessApplication-Info.plist */,
-				7BFDF4A3162D9C3400B0E149 /* LayerProperty.m */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		7BC10D87181EE56E0031D473 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BC10DAA181EE5C00031D473 /* SansNib.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		ECE3B1FF1235F1B800406672 /* SansNib */ = {
+		7BC10D47181EE2200031D473 /* SansNibDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = ECE3B2061235F1B800406672 /* Build configuration list for PBXNativeTarget "SansNib" */;
+			buildConfigurationList = 7BC10D53181EE2210031D473 /* Build configuration list for PBXNativeTarget "SansNibDemo" */;
 			buildPhases = (
-				ECE3B1FC1235F1B800406672 /* Resources */,
-				ECE3B1FD1235F1B800406672 /* Sources */,
-				ECE3B1FE1235F1B800406672 /* Frameworks */,
+				7BC10D44181EE2200031D473 /* Sources */,
+				7BC10D45181EE2200031D473 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7BBE68321823D6510044B655 /* PBXTargetDependency */,
+			);
+			name = SansNibDemo;
+			productName = SansNibDemo;
+			productReference = 7BC10D48181EE2200031D473 /* SansNibDemo */;
+			productType = "com.apple.product-type.tool";
+		};
+		7BC10D88181EE56E0031D473 /* SansNib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BC10DA3181EE5700031D473 /* Build configuration list for PBXNativeTarget "SansNib" */;
+			buildPhases = (
+				7BC10D85181EE56E0031D473 /* Sources */,
+				7BC10D87181EE56E0031D473 /* Headers */,
+				7BC6EF78182503FF004744CD /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SansNib;
-			productName = NiblessApplication;
-			productReference = ECE3B2001235F1B800406672 /* SansNib.app */;
-			productType = "com.apple.product-type.application";
+			productName = SansNib;
+			productReference = 7BC10D89181EE56E0031D473 /* SansNib.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
 
@@ -90,7 +129,7 @@
 		ECE3B1F41235F1AA00406672 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = ECE3B1F71235F1AA00406672 /* Build configuration list for PBXProject "SansNib" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -104,39 +143,161 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				ECE3B1FF1235F1B800406672 /* SansNib */,
+				7BC10D47181EE2200031D473 /* SansNibDemo */,
+				7BC10D88181EE56E0031D473 /* SansNib */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXResourcesBuildPhase section */
-		ECE3B1FC1235F1B800406672 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* Begin PBXShellScriptBuildPhase section */
+		7BC6EF78182503FF004744CD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"${SYSROOT}\"\nsudo ln -sF \"${CODESIGNING_FOLDER_PATH}\" \"${SDK_DIR}/usr/lib/\"\nsudo ln -sF \"${PUBLIC_HEADERS_FOLDER_PATH}/${PRODUCT_NAME}.h\" \"${SDK_DIR}/usr/include/\"\n\n##sudo ln -sF \"${CODESIGNING_FOLDER_PATH}\" \"/usr/lib/\"\n#sudo ln -sF \"${PUBLIC_HEADERS_FOLDER_PATH}/${PRODUCT_NAME}.h\" \"/usr/include/\"\n\n#source ~/.zshrc\n#sudo ln -sF \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"$SDKFRAMEWORKS/\"\n";
 		};
-/* End PBXResourcesBuildPhase section */
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		ECE3B1FD1235F1B800406672 /* Sources */ = {
+		7BC10D44181EE2200031D473 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE3B2171235F21B00406672 /* main.m in Sources */,
-				ECE3B21C1235F25700406672 /* SansNib.m in Sources */,
-				7B37573D163C4499003D52B7 /* LayerProperty.m in Sources */,
+				7BC10D4E181EE2210031D473 /* SansNibDemo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BC10D85181EE56E0031D473 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BBE688F1823F9C90044B655 /* InjectionExtrasold.m in Sources */,
+				7BC10DA9181EE5BD0031D473 /* SansNib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7BBE68321823D6510044B655 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7BC10D88181EE56E0031D473 /* SansNib */;
+			targetProxy = 7BBE68311823D6510044B655 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		7BC10D54181EE2210031D473 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				GCC_PREFIX_HEADER = "SansNibDemo/SansNibDemo-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7BC10D55181EE2210031D473 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				GCC_PREFIX_HEADER = "SansNibDemo/SansNibDemo-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		7BC10DA4181EE5700031D473 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_MODULES_AUTOLINK = NO;
+				DEPLOYMENT_LOCATION = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DSTROOT = /;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-sub_umbrella",
+					Cocoa,
+					"-framework",
+					QuartzCore,
+					"-sub_umbrella",
+					QuartzCore,
+					"-ObjC",
+					"-framework",
+					AtoZ,
+					"-sub_umbrella",
+					AtoZ,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PRODUCT_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = NO;
+			};
+			name = Debug;
+		};
+		7BC10DA5181EE5700031D473 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_MODULES_AUTOLINK = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEPLOYMENT_LOCATION = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				DSTROOT = /;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				ENABLE_NS_ASSERTIONS = NO;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-sub_umbrella",
+					Cocoa,
+					"-framework",
+					QuartzCore,
+					"-sub_umbrella",
+					QuartzCore,
+					"-ObjC",
+					"-framework",
+					AtoZ,
+					"-sub_umbrella",
+					AtoZ,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
+				SDKROOT = macosx;
+				SKIP_INSTALL = NO;
+			};
+			name = Release;
+		};
 		ECE3B1F51235F1AA00406672 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GENERATE_PROFILING_CODE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = "non-global";
 			};
 			name = Debug;
 		};
@@ -144,90 +305,41 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
-			};
-			name = Release;
-		};
-		ECE3B2041235F1B800406672 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "NiblessApplication-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-					"-framework",
-					Cocoa,
-					"-framework",
-					AtoZ,
-					"-framework",
-					QuartzCore,
-				);
-				PRODUCT_NAME = SansNib;
-				SDKROOT = "";
-			};
-			name = Debug;
-		};
-		ECE3B2051235F1B800406672 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "NiblessApplication-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-					"-framework",
-					Cocoa,
-					"-framework",
-					AtoZ,
-					"-framework",
-					QuartzCore,
-				);
-				PRODUCT_NAME = SansNib;
-				SDKROOT = "";
-				ZERO_LINK = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GENERATE_PROFILING_CODE = YES;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = "non-global";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7BC10D53181EE2210031D473 /* Build configuration list for PBXNativeTarget "SansNibDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BC10D54181EE2210031D473 /* Debug */,
+				7BC10D55181EE2210031D473 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BC10DA3181EE5700031D473 /* Build configuration list for PBXNativeTarget "SansNib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BC10DA4181EE5700031D473 /* Debug */,
+				7BC10DA5181EE5700031D473 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		ECE3B1F71235F1AA00406672 /* Build configuration list for PBXProject "SansNib" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ECE3B1F51235F1AA00406672 /* Debug */,
 				ECE3B1F61235F1AA00406672 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		ECE3B2061235F1B800406672 /* Build configuration list for PBXNativeTarget "SansNib" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ECE3B2041235F1B800406672 /* Debug */,
-				ECE3B2051235F1B800406672 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

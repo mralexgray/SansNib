@@ -15,17 +15,16 @@ CLANG_IGNORE_PROTOCOL
 
   _onlyOneExpandedItem    = YES;
   _orientation            = AZOrientVertical;
-  [NSEVENTLOCALMASK:NSScrollWheelMask | NSLeftMouseUpMask handler:^NSE *(NSE *e) {
+  [NSEVENTLOCALMASK:NSScrollWheelMask | NSLeftMouseUpMask | NSKeyUpMask handler:^NSE *(NSE *e) {
+    e.type == NSKeyUp ? ^{ self.scrollOffset += 1; }() :
     e.type == NSScrollWheel ? ^{ self.scrollOffset += 3 * (_orientation == AZOrientVertical ? e.deltaY : e.deltaX); }() :
     e.type == NSLeftMouseUp ? ^{
       if (e.clickCount == 2) self.orientation = _orientation == AZOrientVertical ? AZOrientHorizontal : AZOrientVertical;
       else {
-        id x = [self hit:e.locationInWindow];
-        if(x) {
-          [x toggleBoolForKey:@"expanded"];
-          [self setNeedsDisplay:YES];
-          XX(((NSC*)x).name);
-        }
+        id x; if (!(x = [self hit:e.locationInWindow])) return;
+        [x toggleBoolForKey:@"expanded"];
+        [self setNeedsDisplay:YES];
+        XX(((NSC*)x).nameOfColor);
       }
     }() : nil;
     return e;
@@ -39,50 +38,51 @@ CLANG_IGNORE_PROTOCOL
 
   if (!(nudge = _scrollOffset - scrollOffset)) return; _drawOffset += nudge;
 
-  while (_drawOffset > (nudge = [self spanOfObjectAtIndex:_visibleRange.location]))
-      _visibleRange.location++, _drawOffset -= nudge, XX(@"remove");
-//  while (_drawOffset < (nudge = [self spanOfObjectAtIndex:_visibleRange.location]))
-//      _drawOffset += nudge, _visibleRange.location--, XX(@"ADD");
+  if (nudge > 0)
+    while (_drawOffset > (nudge = [self spanOfObjectAtIndex:_visibleRange.location])) // List is moving UP!
+      _visibleRange.location++, _drawOffset -= nudge;
+  else
+    while (_drawOffset < (nudge = [self spanOfObjectAtIndex:_visibleRange.location])) // List is moving DOWN!
+      _visibleRange.location--, _drawOffset += nudge;
+
   _scrollOffset = scrollOffset;
 }
 
-- (id) hit:(NSP)p  { return [self.storage normal:_visibleRange.location + [_visibleRects indexOfObjectPassingTest:^BOOL(NSVAL*r, NSUI i, BOOL *s) { return *s = NSPointInRect(p,r.rectValue); }]]; }
+- (id) hit:(NSP)p  { NSI hIdx = _visibleRange.location + [_visibleRects indexOfObjectPassingTest:^BOOL(NSVAL*r, NSUI i, BOOL *s) { return *s = NSPointInRect(p,r.rectValue); }];
 
+  return [self.storage normal:hIdx];
+}
 
-- (NSA*) visibleRects { _visibleRects = NSMA.new;
+- (void) drawRect:(NSR)r { IF_RETURN(!self.count);  _visibleRects = NSMA.new; NSO* drawObj;
 
   NSI loc = _visibleRange.location;
-  CGF span = [self spanOfObjectAtIndex:loc];
-  NSR dRect = _orientation == AZOrientVertical ? (NSR){            0, self.height - span + _drawOffset, self.width,       span}
-                                               : (NSR){ -_drawOffset,                         0,       span, self.height };
-  while (_orientation == AZOrientVertical ? dRect.origin.y + dRect.size.height > 0 : dRect.origin.x + dRect.size.width < self.width) {
+  NSR dRect = _orientation == AZOrientVertical ? (NSR){            0, self.height + _drawOffset, self.width,           0 }
+                                               : (NSR){ -_drawOffset,                         0,          0, self.height };
 
-    [_visibleRects addObject:AZVrect(dRect)];
-    span = [self spanOfObjectAtIndex:loc];
-    if (_orientation == AZOrientVertical) { dRect.size.height = span;  dRect.origin.y -= span; }
-    else                                  { dRect.size.width = span;  dRect.origin.x += span; }
+  while ( _orientation == AZOrientVertical ? dRect.origin.y + dRect.size.height > 0 : dRect.origin.x + dRect.size.width < self.width) {
 
-    loc++;
-  }
-   _visibleRange.length = _visibleRects.count;
-  return _visibleRects;
-}
-- (void) drawRect:(NSR)r { IF_RETURN(!self.count); [self visibleRects];
+    CGF span = [self spanOfObjectAtIndex:loc];
+    dRect = _orientation == AZOrientVertical ? AZRectExceptHigh(dRect,span) : AZRectExceptWide(dRect,span);
+    dRect = _orientation == AZOrientVertical ? AZRectVerticallyOffsetBy(dRect,-span) : AZRectHorizontallyOffsetBy(dRect,span);
 
-//  XX(_visibleRects);
-  [_visibleRects eachWithIndex:^(NSVAL*rVal, NSI idx) { NSO* drawObj;
+    void(^dBlk)(id,NSR) = (drawObj = [self.storage normal:loc]).drawBlock;
 
-    void(^dBlk)(id,NSR) = (drawObj = [self.storage normal:_visibleRange.location+idx]).drawBlock;
-    dBlk ? dBlk(drawObj,rVal.rectValue) : NSLog(@"missing drawBlock %@ for %@", AZStringFromRect(rVal.rectValue),drawObj);
-    NSAS *info = $(@"drawIdx:%ld span:%f expanded:%@", idx, rVal.rectValue.size.height, StringFromBOOL(drawObj.expanded)).attributedWithDefaults;
-    NSR iR = AZCornerRectPositionedWithSize(rVal.rectValue, AZBtmRgt, info.size);
+    dBlk ? dBlk(drawObj,dRect) : NSLog(@"missing drawBlock %@ for %@", AZStringFromRect(dRect),drawObj);
+
+    NSAS *info = $(@"x:%ld drawIdx:%ld span:%f exp:%@", loc-_visibleRange.location, loc, dRect.size.height, StringFromBOOL(drawObj.expanded)).attributedWithDefaults;
+    NSR iR = AZCornerRectPositionedWithSize(dRect, AZBtmRgt, info.size);
     NSRectFillWithColor(iR, BLACK);
     [info drawAtPoint:iR.origin];
-  }];
-  NSAS *info = $(@"_drawOffset:%.0f  %.0f %@",_drawOffset,_scrollOffset,AZString(_visibleRange)).attributedWithDefaults;
+    [_visibleRects addObject:AZVrect(dRect)];
+    loc++;
+      NSFrameRectWithWidthWithColor(dRect,drawObj.expanded ? 3 :1, drawObj.expanded ? RED : WHITE);
+  }
+  NSAS *info = $(@"_drawOffset:%.0f  _sOff:%.0f  vRange:%@",_drawOffset,_scrollOffset,AZString(_visibleRange)).attributedWithDefaults;
   NSR iR = AZCornerRectPositionedWithSize(r, AZTopRgt, info.size);
   NSRectFillWithColor(iR, BLACK);
   [info drawAtPoint:iR.origin];
+
+  NSFrameRectWithWidthWithColor(r,2, WHITE);
 }
 @end
 CLANG_POP

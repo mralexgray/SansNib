@@ -20,8 +20,20 @@ int main(int argc, char *argv[]){ @autoreleasepool {
 
     [SansNib addButton:@"L" block:^{ [Lasso toggle]; }];
 
-    DrawObjectBlock d = ^(id c, NSR r){ NSRectFillWithColor(r,(NSC*)c);
-        [$(@"%@ %lu of %lu",((NSC*)c).nameOfColor,((id<Indexed>)c).index,((id<Indexed>)c).indexMax).attributedWithDefaults drawAtPoint:r.origin];
+    DrawObjectBlock d = ^(NSO<Indexed> *c, NSR r){
+
+      NSR cRect = r;
+      if (c.expanded) {
+        cRect.origin.y += r.size.height;
+        cRect.size.height = [c spanCollapsed];
+        cRect.origin.y -= [c spanCollapsed];
+      }
+      NSRectFillWithColor(cRect,(NSC*)c);
+      NSAS *s = $(@"%@ %lu of %lu (%@)",((NSC*)c).nameOfColor, c.index, c.indexMax, c.expanded ? @"EXPANDED" : @"COLLAPSED").attributedWithDefaults;
+      [s drawCenteredVerticallyInRect:cRect];
+      if ([c expanded]) {
+        NSRectFillWithColor(AZRectTrimmedOnTop(r, [c spanCollapsed]), CHECKERS);
+      }
     };
     SansList * list = [SansList viewWithFrame:SansNib.view.bounds mask:NSSIZEABLE];
     NSA*pal = [AtoZ.globalPalette map:^id(NSO* obj) {
@@ -29,10 +41,13 @@ int main(int argc, char *argv[]){ @autoreleasepool {
       [obj setDrawBlock:d];
       return obj;
     }];
-//    XX([pal vFK:@"drawBlock"]);
     [list addObjects:pal];
     [SansNib.view addSubview:list];//[AZSimpleView viewWithFrame:SansNib.view.bounds]];
-    [SansNib addButton:@"⭕️" block:^{ [list addObjects:[RANDOMPAL arrayBySettingValue:d forObjectsKey:@"drawBlock"]];  }];// ][[SansNib.view firstSubviewOfClass:SansList.class] sV:@(RAND_FLOAT_VAL(10,50)) fK:@"rowHeight"]; }];
+    [SansNib addButton:@"⭕️" block:^{ [list addObjects:[RANDOMPAL map:^id(NSO* obj) {
+      [obj setSpanCollapsed:RAND_FLOAT_VAL(20, 89) expanded:100];
+      [obj setDrawBlock:d];
+      return obj;
+    }]];  }];// ][[SansNib.view firstSubviewOfClass:SansList.class] sV:@(RAND_FLOAT_VAL(10,50)) fK:@"rowHeight"]; }];
     [SansNib addButton:@"🔥" block:^{ [SansNib addViewWithSplit:list]; }];
     [SansNib addButton:@"🐇" block:^{ [SansNib addTableForObjects:((SansList*)[SansNib.view firstSubviewOfClass:SansList.class]).storage]; }];
 

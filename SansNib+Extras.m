@@ -8,7 +8,7 @@ void AvailableIcons(void);
 @property  CASHL *box;
 @property  CAL * icon;
 @end
-@interface SansNibWindow :NSWindow
+@interface SansNibWindow : NSWindow
 @property CGFloat barHeight, cornerRadius;
 @property NSView * view;
 @property CALayer* layer;
@@ -16,13 +16,12 @@ void AvailableIcons(void);
 
 @implementation SansNib (Implementation)
 
-+ (id) forwardingTargetForSelector:(SEL)s {
-   return s == @selector(addButton:block:)
-             ? SansNibWindowButton.class
-        : s == @selector(buttons) || s == @selector(window) || s == @selector(eventBlocks)
-             ? SansNib.sansNib
-        : s == @selector(view) || s == @selector(layer)
-             ? SansNib.window : nil;
++ (id) forwardingTargetForSelector:(SEL)s { return
+
+  s == @selector(addButton:block:)                                                  ? SansNibWindowButton.class
+: s == @selector(buttons) || s == @selector(window) || s == @selector(eventBlocks)  ? SansNib.sansNib
+: s == @selector(view)    || s == @selector(layer)                                  ? SansNib.window : nil;
+
 }
 
 + (id) addViewWithClass:(Class)k { NSV * v = [k new]; [self addViewWithSplit:v]; return v; }
@@ -32,13 +31,14 @@ void AvailableIcons(void);
   NSV * t = s.subviews[1]; v.frame = t.bounds; [t removeFromSuperview]; [s addSubview:v];
 }
 
-+ (NSSPLTV*) split {  NSV * v = self.view;
++ (NSSPLTV*) split {  NSV * v = self.view;  return ((NSV*)v.lastSubview ?: ^{ NSV*halve;
 
-  return ((NSV*)v.lastSubview ?: ^{ NSV*halve;
     [v addSubview:halve = [AZSimpleView withFrame:v.bounds color:BLUE]];
     [halve setAutoresizingMask:v.autoresizingMask];  return halve; }()
+
   ).split;
 }
+
 +    (NSTV*) addTableForObjects:(NSA*)a                 { NSView *v; NSScrollView *s; NSTableView *t; NSTableColumn *c;
 
   v = SansNib.view.subviews.lastObject ?: SansNib.view;
@@ -54,6 +54,7 @@ void AvailableIcons(void);
   s.frame = t.frame = v.bounds;
   [c bind:NSValueBinding toObject:[NSArrayController.alloc initWithContent:a] withKeyPath:@"arrangedObjects" options:nil];  return t;
 }
+
 @end
 
 @implementation SansNibWindow
@@ -76,16 +77,16 @@ void AvailableIcons(void);
     [GRAYGRAD drawInBezierPath:p angle:270];
     [p bezel];
   }];
-  [self.contentView setLayer:d];// addSublayer:d];
+  [self.contentView setLayer:d];
   [self.contentView setWantsLayer:YES];
   _layer                = CAL.layer;
-  CASHLA *mask = [CASHLA layer];
+  CASHLA *mask          = CASHLA.layer;
 
   [mask setPathForRect:^NSBezierPath *(id shp) { return [NSBP bezierPathWithRoundedRect:[shp bounds] cornerRadius:_cornerRadius inCorners:OSBottomLeftCorner|OSBottomRightCorner]; }];
-  mask.fillColor = cgBLACK;
-  mask.strokeColor = cgCLEARCOLOR;
-  _layer.mask = mask;
-  _layer.contents  = NSIMG.randomWebImage;
+  mask.fillColor        = cgBLACK;
+  mask.strokeColor      = cgCLEARCOLOR;
+  _layer.mask           = mask;
+  _layer.contents       = NSIMG.randomWebImage;
   _view.layer           = _layer;
   _view.wantsLayer      = YES;
   _layer.filterName     = @"CIOverlayBlendMode";

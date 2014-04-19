@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		7B49615118BB2B4C00E5A459 /* SansList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B49615018BB2B4C00E5A459 /* SansList.m */; };
 		7B53A910188DB02B0065DE13 /* SansNib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7BE03780188DAEF000C2E747 /* SansNib */; };
-		7B9C2E9518B6A86F00D40C99 /* SansNib+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C2E9218B6A86F00D40C99 /* SansNib+Extras.m */; };
-		7BC10D4E181EE2210031D473 /* SansNibCli.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC10D4D181EE2210031D473 /* SansNibCli.m */; };
-		7BC10DA9181EE5BD0031D473 /* SansNib.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC10D65181EE2B20031D473 /* SansNib.m */; };
-		7BC10DAA181EE5C00031D473 /* SansNib.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BC10D64181EE2B20031D473 /* SansNib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B9C2E9518B6A86F00D40C99 /* sansNib+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C2E9218B6A86F00D40C99 /* sansNib+Extras.m */; };
+		7BC10D4E181EE2210031D473 /* sansDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC10D4D181EE2210031D473 /* sansDemo.m */; };
+		7BC10DA9181EE5BD0031D473 /* sansNib.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC10D65181EE2B20031D473 /* sansNib.m */; };
+		7BC10DAA181EE5C00031D473 /* sansNib.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BC10D64181EE2B20031D473 /* sansNib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,13 +40,14 @@
 
 /* Begin PBXFileReference section */
 		7B49615018BB2B4C00E5A459 /* SansList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SansList.m; sourceTree = "<group>"; };
-		7B53A94F188DDF860065DE13 /* scratch */ = {isa = PBXFileReference; lastKnownFileType = text; name = scratch; path = exclude/scratch; sourceTree = "<group>"; };
-		7B9C2E9218B6A86F00D40C99 /* SansNib+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SansNib+Extras.m"; sourceTree = "<group>"; };
-		7BC10D48181EE2200031D473 /* SansNibTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SansNibTest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BC10D4D181EE2210031D473 /* SansNibCli.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SansNibCli.m; sourceTree = "<group>"; };
-		7BC10D64181EE2B20031D473 /* SansNib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SansNib.h; sourceTree = "<group>"; };
-		7BC10D65181EE2B20031D473 /* SansNib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SansNib.m; sourceTree = "<group>"; };
-		7BC10D89181EE56E0031D473 /* libSansNib.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libSansNib.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B53A94F188DDF860065DE13 /* scratch */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; name = scratch; path = exclude/scratch; sourceTree = "<group>"; };
+		7B9C2E9218B6A86F00D40C99 /* sansNib+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "sansNib+Extras.m"; sourceTree = "<group>"; };
+		7BAA864A19029AE3007D9AAD /* libsans-info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "libsans-info.plist"; sourceTree = "<group>"; };
+		7BC10D48181EE2200031D473 /* sansTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sansTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BC10D4D181EE2210031D473 /* sansDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = sansDemo.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		7BC10D64181EE2B20031D473 /* sansNib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sansNib.h; sourceTree = "<group>"; };
+		7BC10D65181EE2B20031D473 /* sansNib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sansNib.m; sourceTree = "<group>"; };
+		7BC10D89181EE56E0031D473 /* libsans.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libsans.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BE03780188DAEF000C2E747 /* SansNib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SansNib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,13 +55,14 @@
 		ECE3B1F21235F1AA00406672 = {
 			isa = PBXGroup;
 			children = (
-				7BC10D4D181EE2210031D473 /* SansNibCli.m */,
-				7BC10D64181EE2B20031D473 /* SansNib.h */,
-				7BC10D65181EE2B20031D473 /* SansNib.m */,
-				7B9C2E9218B6A86F00D40C99 /* SansNib+Extras.m */,
+				7BAA864A19029AE3007D9AAD /* libsans-info.plist */,
+				7BC10D4D181EE2210031D473 /* sansDemo.m */,
+				7BC10D64181EE2B20031D473 /* sansNib.h */,
+				7BC10D65181EE2B20031D473 /* sansNib.m */,
+				7B9C2E9218B6A86F00D40C99 /* sansNib+Extras.m */,
 				7B49615018BB2B4C00E5A459 /* SansList.m */,
-				ECE3B2011235F1B800406672 /* Products */,
 				7B53A94F188DDF860065DE13 /* scratch */,
+				ECE3B2011235F1B800406672 /* Products */,
 				7BE03780188DAEF000C2E747 /* SansNib */,
 			);
 			sourceTree = "<group>";
@@ -68,8 +70,8 @@
 		ECE3B2011235F1B800406672 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7BC10D48181EE2200031D473 /* SansNibTest */,
-				7BC10D89181EE56E0031D473 /* libSansNib.dylib */,
+				7BC10D48181EE2200031D473 /* sansTest */,
+				7BC10D89181EE56E0031D473 /* libsans.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,16 +83,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BC10DAA181EE5C00031D473 /* SansNib.h in Headers */,
+				7BC10DAA181EE5C00031D473 /* sansNib.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		7BC10D47181EE2200031D473 /* SansNibTest */ = {
+		7BC10D47181EE2200031D473 /* libsans demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7BC10D53181EE2210031D473 /* Build configuration list for PBXNativeTarget "SansNibTest" */;
+			buildConfigurationList = 7BC10D53181EE2210031D473 /* Build configuration list for PBXNativeTarget "libsans demo" */;
 			buildPhases = (
 				7BC10D44181EE2200031D473 /* Sources */,
 			);
@@ -99,14 +101,14 @@
 			dependencies = (
 				7BBE68321823D6510044B655 /* PBXTargetDependency */,
 			);
-			name = SansNibTest;
+			name = "libsans demo";
 			productName = SansNibDemo;
-			productReference = 7BC10D48181EE2200031D473 /* SansNibTest */;
+			productReference = 7BC10D48181EE2200031D473 /* sansTest */;
 			productType = "com.apple.product-type.tool";
 		};
-		7BC10D88181EE56E0031D473 /* SansNib */ = {
+		7BC10D88181EE56E0031D473 /* libsans */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7BC10DA3181EE5700031D473 /* Build configuration list for PBXNativeTarget "SansNib" */;
+			buildConfigurationList = 7BC10DA3181EE5700031D473 /* Build configuration list for PBXNativeTarget "libsans" */;
 			buildPhases = (
 				7BC10D85181EE56E0031D473 /* Sources */,
 				7BC10D87181EE56E0031D473 /* Headers */,
@@ -117,9 +119,9 @@
 			);
 			dependencies = (
 			);
-			name = SansNib;
+			name = libsans;
 			productName = SansNib;
-			productReference = 7BC10D89181EE56E0031D473 /* libSansNib.dylib */;
+			productReference = 7BC10D89181EE56E0031D473 /* libsans.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -130,7 +132,7 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 			};
-			buildConfigurationList = ECE3B1F71235F1AA00406672 /* Build configuration list for PBXProject "SansNib" */;
+			buildConfigurationList = ECE3B1F71235F1AA00406672 /* Build configuration list for PBXProject "sans" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -142,8 +144,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7BC10D47181EE2200031D473 /* SansNibTest */,
-				7BC10D88181EE56E0031D473 /* SansNib */,
+				7BC10D47181EE2200031D473 /* libsans demo */,
+				7BC10D88181EE56E0031D473 /* libsans */,
 			);
 		};
 /* End PBXProject section */
@@ -169,7 +171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BC10D4E181EE2210031D473 /* SansNibCli.m in Sources */,
+				7BC10D4E181EE2210031D473 /* sansDemo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,9 +179,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BC10DA9181EE5BD0031D473 /* SansNib.m in Sources */,
+				7BC10DA9181EE5BD0031D473 /* sansNib.m in Sources */,
 				7B49615118BB2B4C00E5A459 /* SansList.m in Sources */,
-				7B9C2E9518B6A86F00D40C99 /* SansNib+Extras.m in Sources */,
+				7B9C2E9518B6A86F00D40C99 /* sansNib+Extras.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +190,7 @@
 /* Begin PBXTargetDependency section */
 		7BBE68321823D6510044B655 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7BC10D88181EE56E0031D473 /* SansNib */;
+			target = 7BC10D88181EE56E0031D473 /* libsans */;
 			targetProxy = 7BBE68311823D6510044B655 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -197,71 +199,86 @@
 		7BC10D54181EE2210031D473 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				OTHER_LDFLAGS = (
-					"-lSansNib",
+					"-lsans",
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = sansTest;
 			};
 			name = Debug;
 		};
 		7BC10D55181EE2210031D473 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				OTHER_LDFLAGS = (
-					"-lSansNib",
+					"-lsans",
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = sansTest;
 			};
 			name = Release;
 		};
 		7BC10DA4181EE5700031D473 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = /;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "libsans-info.plist";
+				INFOPLIST_PREPROCESS = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-framework",
 					AtoZ,
 					"-sub_umbrella",
 					AtoZ,
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"libsans-info.plist",
 				);
-				PRODUCT_NAME = SansNib;
-				PUBLIC_HEADERS_FOLDER_PATH = include/$PRODUCT_NAME;
+				PRODUCT_NAME = sans;
+				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
 			};
 			name = Debug;
 		};
 		7BC10DA5181EE5700031D473 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = /;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
+				INFOPLIST_FILE = "libsans-info.plist";
+				INFOPLIST_PREPROCESS = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-framework",
 					AtoZ,
 					"-sub_umbrella",
 					AtoZ,
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"libsans-info.plist",
 				);
-				PRODUCT_NAME = SansNib;
-				PUBLIC_HEADERS_FOLDER_PATH = include/$PRODUCT_NAME;
+				PRODUCT_NAME = sans;
+				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
 			};
 			name = Release;
 		};
 		ECE3B1F51235F1AA00406672 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(AZBUILD)";
 				GCC_C_LANGUAGE_STANDARD = c11;
@@ -276,6 +293,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(AZBUILD)";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -284,6 +302,7 @@
 		ECE3B1F61235F1AA00406672 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(AZBUILD)";
 				GCC_C_LANGUAGE_STANDARD = c11;
@@ -298,6 +317,7 @@
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(AZBUILD)";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -306,7 +326,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7BC10D53181EE2210031D473 /* Build configuration list for PBXNativeTarget "SansNibTest" */ = {
+		7BC10D53181EE2210031D473 /* Build configuration list for PBXNativeTarget "libsans demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7BC10D54181EE2210031D473 /* Debug */,
@@ -315,7 +335,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7BC10DA3181EE5700031D473 /* Build configuration list for PBXNativeTarget "SansNib" */ = {
+		7BC10DA3181EE5700031D473 /* Build configuration list for PBXNativeTarget "libsans" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7BC10DA4181EE5700031D473 /* Debug */,
@@ -324,7 +344,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		ECE3B1F71235F1AA00406672 /* Build configuration list for PBXProject "SansNib" */ = {
+		ECE3B1F71235F1AA00406672 /* Build configuration list for PBXProject "sans" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				ECE3B1F51235F1AA00406672 /* Debug */,

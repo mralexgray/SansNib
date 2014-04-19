@@ -1,5 +1,5 @@
 #import <AtoZ/AtoZ.h>
-#import <SansNib.h>
+#import <sans.h>
 
 int main(int argc, char *argv[]){ @autoreleasepool {
 
@@ -9,7 +9,7 @@ int main(int argc, char *argv[]){ @autoreleasepool {
     [SansNib addButton:@"S" block:^{ [SansNib split];                                 }];
     [SansNib addButton:@"H" block:^{ [SansNib.view toggleBoolForKey:@"faded"];        }];
     [SansNib addButton:@"I" block:^{ /*AvailableIcons();*/                            }];
-    [SansNib addButton:@"T" block:^{ [SansNib addTableForObjects:runningApps];        }];
+    [SansNib addButton:@"T" block:^{ [SansNib addTableWith:runningApps];              }];
 
     [AZNOTCENTER observeName:NSTableViewSelectionDidChangeNotification usingBlock:^(NSNotification *n) {
       XX([runningApps[[n.object selectedRow]] vFK:@"drawBlock"]);
@@ -38,18 +38,19 @@ int main(int argc, char *argv[]){ @autoreleasepool {
     SansList * list = [SansList viewWithFrame:SansNib.view.bounds mask:NSSIZEABLE];
     NSA*pal = [AtoZ.globalPalette map:^id(NSO* obj) {
       [obj setSpanCollapsed:50 expanded:100];
-      [obj setDrawBlock:d];
+      [obj setDrawObjectBlock:d];
+
       return obj;
     }];
     [list addObjects:pal];
     [SansNib.view addSubview:list];//[AZSimpleView viewWithFrame:SansNib.view.bounds]];
     [SansNib addButton:@"⭕️" block:^{ [list addObjects:[RANDOMPAL map:^id(NSO* obj) {
       [obj setSpanCollapsed:RAND_FLOAT_VAL(20, 89) expanded:100];
-      [obj setDrawBlock:d];
+      [obj setDrawObjectBlock:d];
       return obj;
     }]];  }];// ][[SansNib.view firstSubviewOfClass:SansList.class] sV:@(RAND_FLOAT_VAL(10,50)) fK:@"rowHeight"]; }];
     [SansNib addButton:@"🔥" block:^{ [SansNib addViewWithSplit:list]; }];
-    [SansNib addButton:@"🐇" block:^{ [SansNib addTableForObjects:((SansList*)[SansNib.view firstSubviewOfClass:SansList.class]).storage]; }];
+    [SansNib addButton:@"🐇" block:^{ [SansNib addTableWith:((SansList*)[SansNib.view firstSubviewOfClass:SansList.class]).storage]; }];
 
     [SansNib.eventBlocks addObject:^(NSEvent *e) {
       static CAShapeLayerAuto *zLayer = nil;
@@ -104,7 +105,7 @@ int main(int argc, char *argv[]){ @autoreleasepool {
 //        [vLayer addSublayer:zLayer];
 //        [zLayer fadeIn];
 //        XX(@"YAY");
-  //  [CABlockDelegate delegateFor:SansNib.layer ofType:CABlockTypeDrawInContext withBlock:^(CALayer *l) {
+  //  [BlockDelegate delegateFor:SansNib.layer ofType:CABlockTypeDrawInContext withBlock:^(CALayer *l) {
   //
   //    NSBP* p = [NSBP bezierPathWithRect:l.bounds];
   //    [p fillWithColor:WHITE];

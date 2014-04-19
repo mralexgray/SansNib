@@ -1,6 +1,6 @@
 
-#import <Cocoa/Cocoa.h>
-#import <QuartzCore/QuartzCore.h>
+@import Cocoa;
+@import QuartzCore;
 #import <AtoZ/AtoZ.h>
 
 typedef void(^EventBlock)(NSEvent*e);
@@ -12,10 +12,11 @@ typedef void(^EventBlock)(NSEvent*e);
 +       (NSWindow*) window;
 +         (NSView*) view;
 +        (CALayer*) layer;
++        (CALayer*) hitLayer;
 +    (NSSplitView*) split;
 + (NSMutableArray*) eventBlocks;
 + (NSMutableArray*) buttons;
-+    (NSTableView*) addTableForObjects:(NSArray*)arr;
++    (NSTableView*) addTableWith:(NSArray*)arr;
 +            (void) addButton:(id)i block:(VoidBlock)b;
 +              (id) addViewWithClass:(Class)k;
 +            (void) addViewWithSplit:(NSV*)v;
@@ -23,10 +24,11 @@ typedef void(^EventBlock)(NSEvent*e);
 
 @interface       SansList : NSView <ArrayLike>
 
-@property BOOL onlyOneExpandedItem;
-//@property (CP)  CGF(^span)   (id obj);
-//@property (CP) void(^objectDrawBlock)(id obj, NSR r);
-
+@property         BOOL   onlyOneExpandedItem;
+@property (NATOM)  RNG * visibleRange;
+@property (NATOM)  CGF   scrollOffset;//, drawOffset;
+@property CATransformLayer * list;
+@property CAL * info;
 @end
 
 @interface  DebugLayer : NSO
@@ -101,3 +103,5 @@ typedef void(^EventBlock)(NSEvent*e);
 //@property	(readonly)  NSScrollView * scrlView;		//+ (NSMenu*) mainMenu;
 //@property							 CATextLayer * textLayer;
 //@property	(readonly)       CALayer * layer;
+//@property (CP)  CGF(^span)   (id obj);
+//@property (CP) void(^objectDrawBlock)(id obj, NSR r);

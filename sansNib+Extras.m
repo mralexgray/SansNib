@@ -5,63 +5,56 @@
 void AvailableIcons(void);
 
 @interface SansNibWindowButton : NSObject
-@property  CASHL *box;
-@property  CAL * icon;
+@property         CAShapeLayer * box;
+@property              CALayer * icon;
 @end
-@interface SansNibWindow : NSWindow
-@property CGFloat barHeight, cornerRadius;
-@property NSView * view;
-@property CALayer* layer;
+@interface       SansNibWindow : NSWindow
+@property               NSView * view;
+@property              CALayer * layer;
+@property (weak)       CALayer * hitLayer;
+@property              CGFloat   barHeight, cornerRadius;
 @end
 
 @implementation SansNib (Implementation)
 
-+ (id) forwardingTargetForSelector:(SEL)s { return
++ (id) forwardingTargetForSelector:(SEL)s       { id x =NSStringFromSelector(s); return 
 
-  s == @selector(addButton:block:)                                                  ? SansNibWindowButton.class
-: s == @selector(buttons) || s == @selector(window) || s == @selector(eventBlocks)  ? SansNib.sansNib
-: s == @selector(view)    || s == @selector(layer)                                  ? SansNib.window : nil;
-
+  [x isEqualToString:     @"addButton:block:"]                  ? SansNibWindowButton.class                  
+: [x isEqualToString:        @"addTableWith:"]                  ? self.view.subviews.lastObject ?: self.view 
+: [@[@"eventBlocks",  @"buttons",   @"window"]containsObject:x] ? SansNib.sansNib           
+: [@[   @"hitLayer",    @"layer",     @"view"]containsObject:x] ? SansNib.window : nil;
 }
-
-+ (id) addViewWithClass:(Class)k { NSV * v = [k new]; [self addViewWithSplit:v]; return v; }
-
-+ (void) addViewWithSplit:(NSV*)v { NSSplitView * s = [self.view.lastLastSubview split];
++ (id) addViewWithClass:(Class)k                { NSV * v = [k new]; [self addViewWithSplit:v]; return v; }
++ (void) addViewWithSplit:(NSView*)v            { NSSplitView * s = [self.view.lastLastSubview split];
 
   NSV * t = s.subviews[1]; v.frame = t.bounds; [t removeFromSuperview]; [s addSubview:v];
 }
-
-+ (NSSPLTV*) split {  NSV * v = self.view;  return ((NSV*)v.lastSubview ?: ^{ NSV*halve;
++ (NSSplitView*) split                          {  NSV * v = self.view;  return ((NSV*)v.lastSubview ?: ^{ NSV*halve;
 
     [v addSubview:halve = [AZSimpleView withFrame:v.bounds color:BLUE]];
     [halve setAutoresizingMask:v.autoresizingMask];  return halve; }()
 
   ).split;
 }
+@end
 
-+    (NSTV*) addTableForObjects:(NSA*)a                 { NSView *v; NSScrollView *s; NSTableView *t; NSTableColumn *c;
+@implementation NSView (SansNib) 
+- (NSTableView*) addTableWith:(NSArray*)a { NSScrollView *s; NSTableView * t; NSTableColumn *c;  NSView *v;
 
-  v = SansNib.view.subviews.lastObject ?: SansNib.view;
-  v = [v isKindOfClass:NSSplitView.class] ? v.subviews.lastObject : v;
-  NSLog(@"adding it to %@", v);
-  [v addSubview:                          s =  NSScrollView.new];
-  [s setDocumentView:                     t =   NSTableView.new];
-  [t addTableColumn:                      c = NSTableColumn.new];
-  [c setResizingMask:             NSTableColumnAutoresizingMask];
-  [s setAutoresizingMask:NSViewWidthSizable|NSViewHeightSizable];
-  [t setUsesAlternatingRowBackgroundColors:                 YES];
-  [t setHeaderView:                                         nil];
-  s.frame = t.frame = v.bounds;
-  [c bind:NSValueBinding toObject:[NSArrayController.alloc initWithContent:a] withKeyPath:@"arrangedObjects" options:nil];  return t;
+  v = [SansNib split].subviews.last;           // isKindOfClass:NSSplitView.class] ? self.subviews.lastObject :self;
+  [self addSubview:   s =  NSScrollView.new]; 
+  [s setDocumentView: t =   NSTableView.new]; 
+  [t addTableColumn:  c = NSTableColumn.new]; t.frame = s.frame = v.bounds; 
+  c.resizingMask                       = NSTableColumnAutoresizingMask; 
+  s.autoresizingMask = t.autoresizingMask = NSViewWidthSizable|NSViewHeightSizable;
+  t.headerView                         = nil; 
+  t.usesAlternatingRowBackgroundColors = YES;
+  [c bind:NSValueBinding toObject:[NSArrayController.alloc initWithContent:a] withKeyPath:@"arrangedObjects" options:nil];  
 }
-
 @end
 
 @implementation SansNibWindow
-
-- (id) init {
-
-  self = [super initWithContentRect:AZScaleRect(AZScreenFrame(),.4) styleMask:0|8 backing:2 defer:NO];  // Our "windowView" is just the contentView.
+- (id) init { self = [super initWithContentRect:AZScaleRect(AZScreenFrame(),.4) styleMask:0|8 backing:2 defer:NO];
 
   self.acceptsFirstResponder      =
   self.acceptsMouseMovedEvents    =
@@ -69,33 +62,30 @@ void AvailableIcons(void);
   self.opaque                     = NO;
   self.backgroundColor            = NSColor.clearColor;
   self.minSize                    = (NSSize){200,100};
-  _barHeight                      = 32;
-  _cornerRadius                   = 10;
+  _barHeight                      = 32;                                                                       // this is the fake "title bar"
+  _cornerRadius                   = 10;                                                                       // round those corners, girl
   [self.contentView addSubview:_view = [NSV viewWithFrame:AZRectTrimmedOnTop(self.contentRect,_barHeight)]];
-  CAL *d = [CAL layerWithFrame:self.view.bounds drawnUsingBlock:^(CALayer *l) {
-    NSBP *p = [NSBP bezierPathWithRoundedRect:l.bounds cornerRadius:_cornerRadius];
-    [GRAYGRAD drawInBezierPath:p angle:270];
-    [p bezel];
+  CALayer *d = [CAL layerWithFrame:self.view.bounds drawnUsingBlock:^(CALayer *l, CGCREF ctx) {            // draws window's "background"
+    NSBP *p = [NSBP bezierPathWithRoundedRect:l.bounds cornerRadius:_cornerRadius]; // Draw a purty gradient
+    [GRAYGRAD drawInBezierPath:p angle:270];  [p bezel];                            // bezel it for even prettier edges!
   }];
-  [self.contentView setLayer:d];
+  [self.contentView setLayer: d];
   [self.contentView setWantsLayer:YES];
-  _layer                = CAL.layer;
-  CASHLA *mask          = CASHLA.layer;
-
+  _layer  = CAL.layer;
+  CASHLA *mask          = [CASHLA layerNamed:@"SansNibWindowMask"];
   [mask setPathForRect:^NSBezierPath *(id shp) { return [NSBP bezierPathWithRoundedRect:[shp bounds] cornerRadius:_cornerRadius inCorners:OSBottomLeftCorner|OSBottomRightCorner]; }];
   mask.fillColor        = cgBLACK;
   mask.strokeColor      = cgCLEARCOLOR;
   _layer.mask           = mask;
   _layer.contents       = NSIMG.randomWebImage;
-  _view.layer           = _layer;
+  _view.layer = _layer;
   _view.wantsLayer      = YES;
   _layer.filterName     = @"CIOverlayBlendMode";
 
   [NSEVENTLOCALMASK:NSMouseMovedMask|NSLeftMouseUpMask|NSLeftMouseDownMask|NSScrollWheelMask handler:^(NSE *ev) {
 
 //    XX([_view hitTest:ev.locationInWindow]);
-//    CALayer *x = [_layer hitTestSubs:ev.locationInWindow];
-//    x ? [Lasso rope:x] : [Lasso setFree];
+    !!(self.hitLayer = [_layer hitTestSubs:ev.locationInWindow]) ? [Lasso enabled] ? [Lasso rope:_hitLayer] : [Lasso setFree] : nil;
 
     if (ev.type == NSLeftMouseUp) {
       CALayer *z = [[self.contentView layer] hitTest:ev.locationInWindow];
@@ -106,12 +96,10 @@ void AvailableIcons(void);
   }];
   return self;
 }
+- (BOOL)performKeyEquivalent:(NSEvent*)e { return YES; }
 @end
-//              ?: [[self.contentView layer] hitTest:ev.locationInWindow];
-//    NSLog(@"%@ : %@ - %@",x, AZEventToString(ev.type), AZString(ev.locationInWindow));
 
 @implementation SansNibWindowButton
-
 + (void) addButton:(id)x block:(VoidBlock)blk   { AZSTATIC(NSR,bRect,((NSR){0,0,22,22})); AZSTATIC_OBJ(NSA,feng,NSC.fengshui.jumbled);
 
   SansNibWindowButton *new = self.new;
@@ -150,6 +138,9 @@ void        AvailableIcons(void) {
   [splitter.subviews.lastObject addSubview:sv];
 }
 
+//              ?: [[self.contentView layer] hitTest:ev.locationInWindow];
+//    NSLog(@"%@ : %@ - %@",x, AZEventToString(ev.type), AZString(ev.locationInWindow));
+
 //CALayer * AddLayer(NSView*v) { XX(v.className);
 //
 //  CALayer *layer        = v.guaranteedLayer;
@@ -184,3 +175,16 @@ void        AvailableIcons(void) {
 ////    NSLog(@"drawing in context, %@", AZString(self.contentRect));
 //    [[NSBP bezierPathWithRoundedRect:self.contentRect cornerRadius:30 inCorners:OSBottomLeftCorner|OSBottomRightCorner] fillWithColor:RED];
 //  }];
+//- (NSTableView*) encloseNew:(Class)tableOrOutline { }
+
+//  t.dataSource = self;
+
+//}
+//
+//- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+//    return 3;
+//}
+//
+//- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+//    return [NSString stringWithFormat:@"%ld", row];
+//}

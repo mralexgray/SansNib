@@ -7,15 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B49615118BB2B4C00E5A459 /* SansList.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B49615018BB2B4C00E5A459 /* SansList.m */; };
-		7B53A910188DB02B0065DE13 /* SansNib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7BE03780188DAEF000C2E747 /* SansNib */; };
-		7B9C2E9518B6A86F00D40C99 /* sansNib+Extras.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C2E9218B6A86F00D40C99 /* sansNib+Extras.m */; };
-		7BC10D4E181EE2210031D473 /* sansDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC10D4D181EE2210031D473 /* sansDemo.m */; };
-		7BC10DA9181EE5BD0031D473 /* sansNib.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC10D65181EE2B20031D473 /* sansNib.m */; };
-		7BC10DAA181EE5C00031D473 /* sansNib.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BC10D64181EE2B20031D473 /* sansNib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B0F47A3193A0259007D81DF /* sans+Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F47A11939F4E9007D81DF /* sans+Categories.m */; };
+		7B49615118BB2B4C00E5A459 /* sans+List.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B49615018BB2B4C00E5A459 /* sans+List.m */; };
+		7B53A910188DB02B0065DE13 /* SansNib in Copy Template Files To Developer Folders */ = {isa = PBXBuildFile; fileRef = 7BE03780188DAEF000C2E747 /* SansNib */; };
+		7B99B201193BD500001AADF5 /* libAtoZAutoBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B99B1FD193BD4BB001AADF5 /* libAtoZAutoBox.a */; };
+		7B9C2E9518B6A86F00D40C99 /* sans+Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C2E9218B6A86F00D40C99 /* sans+Window.m */; };
+		7BBF69C8193A0C630034CCFA /* libsans.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC10D89181EE56E0031D473 /* libsans.dylib */; };
+		7BC10D4E181EE2210031D473 /* sans+Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC10D4D181EE2210031D473 /* sans+Demo.m */; };
+		7BC10DA9181EE5BD0031D473 /* sans.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC10D65181EE2B20031D473 /* sans.m */; };
+		7BC10DAA181EE5C00031D473 /* sans.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BC10D64181EE2B20031D473 /* sans.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7B99B1FC193BD4BB001AADF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B99B1F7193BD4BA001AADF5 /* AtoZAutoBox.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7BC4254D1776799C00928201;
+			remoteInfo = AtoZAutoBox;
+		};
+		7B99B1FE193BD4BB001AADF5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B99B1F7193BD4BA001AADF5 /* AtoZAutoBox.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7B78F64C180A670000515A10;
+			remoteInfo = AtoZAutoBoxTests;
+		};
 		7BBE68311823D6510044B655 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = ECE3B1F41235F1AA00406672 /* Project object */;
@@ -26,44 +43,87 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		7BE0377F188DAE1900C2E747 /* CopyFiles */ = {
+		7BE0377F188DAE1900C2E747 /* Copy Template Files To Developer Folders */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			dstPath = "$(HOME)/Library/Application Support/Developer/Shared/Xcode/Project Templates";
 			dstSubfolderSpec = 0;
 			files = (
-				7B53A910188DB02B0065DE13 /* SansNib in CopyFiles */,
+				7B53A910188DB02B0065DE13 /* SansNib in Copy Template Files To Developer Folders */,
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			name = "Copy Template Files To Developer Folders";
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7B49615018BB2B4C00E5A459 /* SansList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SansList.m; sourceTree = "<group>"; };
+		7B0F47A11939F4E9007D81DF /* sans+Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "sans+Categories.m"; sourceTree = "<group>"; };
+		7B35D0A9190CF8FA00D818BC /* DeveloperLib.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = DeveloperLib.xcconfig; path = ../DeveloperLib.xcconfig; sourceTree = "<group>"; };
+		7B49615018BB2B4C00E5A459 /* sans+List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "sans+List.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7B53A94F188DDF860065DE13 /* scratch */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; name = scratch; path = exclude/scratch; sourceTree = "<group>"; };
-		7B9C2E9218B6A86F00D40C99 /* sansNib+Extras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "sansNib+Extras.m"; sourceTree = "<group>"; };
+		7B99B1F7193BD4BA001AADF5 /* AtoZAutoBox.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AtoZAutoBox.xcodeproj; path = ../../AtoZ.framework/Frameworks/AtoZAutoBox/AtoZAutoBox.xcodeproj; sourceTree = "<group>"; };
+		7B9C2E9218B6A86F00D40C99 /* sans+Window.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "sans+Window.m"; sourceTree = "<group>"; };
 		7BAA864A19029AE3007D9AAD /* libsans-info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "libsans-info.plist"; sourceTree = "<group>"; };
 		7BC10D48181EE2200031D473 /* sansTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sansTest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BC10D4D181EE2210031D473 /* sansDemo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = sansDemo.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		7BC10D64181EE2B20031D473 /* sansNib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sansNib.h; sourceTree = "<group>"; };
-		7BC10D65181EE2B20031D473 /* sansNib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sansNib.m; sourceTree = "<group>"; };
+		7BC10D4D181EE2210031D473 /* sans+Demo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "sans+Demo.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		7BC10D64181EE2B20031D473 /* sans.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sans.h; sourceTree = "<group>"; };
+		7BC10D65181EE2B20031D473 /* sans.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sans.m; sourceTree = "<group>"; };
 		7BC10D89181EE56E0031D473 /* libsans.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libsans.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BE03780188DAEF000C2E747 /* SansNib */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SansNib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		7B99B200193BD4F2001AADF5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B99B201193BD500001AADF5 /* libAtoZAutoBox.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BBF69C7193A0C5C0034CCFA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BBF69C8193A0C630034CCFA /* libsans.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
+		7B99B1F8193BD4BA001AADF5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B99B1FD193BD4BB001AADF5 /* libAtoZAutoBox.a */,
+				7B99B1FF193BD4BB001AADF5 /* AtoZAutoBoxTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7BBA4F4419163294003E0219 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				7B35D0A9190CF8FA00D818BC /* DeveloperLib.xcconfig */,
+				7BAA864A19029AE3007D9AAD /* libsans-info.plist */,
+				7B53A94F188DDF860065DE13 /* scratch */,
+				7BE03780188DAEF000C2E747 /* SansNib */,
+				ECE3B2011235F1B800406672 /* Products */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		ECE3B1F21235F1AA00406672 = {
 			isa = PBXGroup;
 			children = (
-				7BAA864A19029AE3007D9AAD /* libsans-info.plist */,
-				7BC10D4D181EE2210031D473 /* sansDemo.m */,
-				7BC10D64181EE2B20031D473 /* sansNib.h */,
-				7BC10D65181EE2B20031D473 /* sansNib.m */,
-				7B9C2E9218B6A86F00D40C99 /* sansNib+Extras.m */,
-				7B49615018BB2B4C00E5A459 /* SansList.m */,
-				7B53A94F188DDF860065DE13 /* scratch */,
-				ECE3B2011235F1B800406672 /* Products */,
-				7BE03780188DAEF000C2E747 /* SansNib */,
+				7B99B1F7193BD4BA001AADF5 /* AtoZAutoBox.xcodeproj */,
+				7BC10D64181EE2B20031D473 /* sans.h */,
+				7BC10D65181EE2B20031D473 /* sans.m */,
+				7B0F47A11939F4E9007D81DF /* sans+Categories.m */,
+				7B9C2E9218B6A86F00D40C99 /* sans+Window.m */,
+				7B49615018BB2B4C00E5A459 /* sans+List.m */,
+				7BBA4F4419163294003E0219 /* Other */,
+				7BC10D4D181EE2210031D473 /* sans+Demo.m */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,7 +143,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BC10DAA181EE5C00031D473 /* sansNib.h in Headers */,
+				7BC10DAA181EE5C00031D473 /* sans.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +155,7 @@
 			buildConfigurationList = 7BC10D53181EE2210031D473 /* Build configuration list for PBXNativeTarget "libsans demo" */;
 			buildPhases = (
 				7BC10D44181EE2200031D473 /* Sources */,
+				7BBF69C7193A0C5C0034CCFA /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -113,7 +174,8 @@
 				7BC10D85181EE56E0031D473 /* Sources */,
 				7BC10D87181EE56E0031D473 /* Headers */,
 				7BC6EF78182503FF004744CD /* ShellScript */,
-				7BE0377F188DAE1900C2E747 /* CopyFiles */,
+				7BE0377F188DAE1900C2E747 /* Copy Template Files To Developer Folders */,
+				7B99B200193BD4F2001AADF5 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -142,6 +204,12 @@
 			mainGroup = ECE3B1F21235F1AA00406672;
 			productRefGroup = ECE3B2011235F1B800406672 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7B99B1F8193BD4BA001AADF5 /* Products */;
+					ProjectRef = 7B99B1F7193BD4BA001AADF5 /* AtoZAutoBox.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7BC10D47181EE2200031D473 /* libsans demo */,
@@ -149,6 +217,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7B99B1FD193BD4BB001AADF5 /* libAtoZAutoBox.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAtoZAutoBox.a;
+			remoteRef = 7B99B1FC193BD4BB001AADF5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7B99B1FF193BD4BB001AADF5 /* AtoZAutoBoxTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AtoZAutoBoxTests.octest;
+			remoteRef = 7B99B1FE193BD4BB001AADF5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		7BC6EF78182503FF004744CD /* ShellScript */ = {
@@ -162,7 +247,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#echo \"${SYSROOT}\"\n#sudo ln -sF \"${CODESIGNING_FOLDER_PATH}\" \"${SDK_DIR}/usr/lib/\"\n#sudo ln -sF \"${PUBLIC_HEADERS_FOLDER_PATH}/${PRODUCT_NAME}.h\" \"${SDK_DIR}/usr/include/\"\n\n##sudo ln -sF \"${CODESIGNING_FOLDER_PATH}\" \"/usr/lib/\"\n#sudo ln -sF \"${PUBLIC_HEADERS_FOLDER_PATH}/${PRODUCT_NAME}.h\" \"/usr/include/\"\n\n#source ~/.zshrc\n#sudo ln -sF \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"$SDKFRAMEWORKS/\"\n";
+			shellScript = "\n# echo \"${SYSROOT}\"\n\n#sudo ln -sF \"${CODESIGNING_FOLDER_PATH}\" \"${SDK_DIR}/usr/lib/\"\n\n#sudo ln -sF \"${PUBLIC_HEADERS_FOLDER_PATH}/${PRODUCT_NAME}.h\" \"${SDK_DIR}/usr/include/\"\n\n##sudo ln -sF \"${CODESIGNING_FOLDER_PATH}\" \"/usr/lib/\"\n#sudo ln -sF \"${PUBLIC_HEADERS_FOLDER_PATH}/${PRODUCT_NAME}.h\" \"/usr/include/\"\n\n#source ~/.zshrc\n#sudo ln -sF \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"$SDKFRAMEWORKS/\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -171,7 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BC10D4E181EE2210031D473 /* sansDemo.m in Sources */,
+				7BC10D4E181EE2210031D473 /* sans+Demo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,9 +264,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BC10DA9181EE5BD0031D473 /* sansNib.m in Sources */,
-				7B49615118BB2B4C00E5A459 /* SansList.m in Sources */,
-				7B9C2E9518B6A86F00D40C99 /* sansNib+Extras.m in Sources */,
+				7BC10DA9181EE5BD0031D473 /* sans.m in Sources */,
+				7B49615118BB2B4C00E5A459 /* sans+List.m in Sources */,
+				7B0F47A3193A0259007D81DF /* sans+Categories.m in Sources */,
+				7B9C2E9518B6A86F00D40C99 /* sans+Window.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,25 +309,25 @@
 		7BC10DA4181EE5700031D473 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				DEPLOYMENT_LOCATION = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
 				DSTROOT = /;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GENERATE_MASTER_OBJECT_FILE = YES;
 				INFOPLIST_FILE = "libsans-info.plist";
-				INFOPLIST_PREPROCESS = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
-					"-framework",
-					AtoZ,
-					"-sub_umbrella",
-					AtoZ,
 					"-sectcreate",
 					__TEXT,
 					__info_plist,
 					"libsans-info.plist",
+					"-sub_library",
+					libAtoZAutoBox,
+					"-framework",
+					AtoZ,
 				);
 				PRODUCT_NAME = sans;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
@@ -251,24 +337,24 @@
 		7BC10DA5181EE5700031D473 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				DEPLOYMENT_LOCATION = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
 				DSTROOT = /;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
+				GENERATE_MASTER_OBJECT_FILE = YES;
 				INFOPLIST_FILE = "libsans-info.plist";
-				INFOPLIST_PREPROCESS = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
-					"-framework",
-					AtoZ,
-					"-sub_umbrella",
-					AtoZ,
 					"-sectcreate",
 					__TEXT,
 					__info_plist,
 					"libsans-info.plist",
+					"-sub_library",
+					libAtoZAutoBox,
+					"-framework",
+					AtoZ,
 				);
 				PRODUCT_NAME = sans;
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
@@ -278,48 +364,40 @@
 		ECE3B1F51235F1AA00406672 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(AZBUILD)";
+				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-				);
-				LD_RUNPATH_SEARCH_PATHS = "$(AZBUILD)";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = "non-global";
 			};
 			name = Debug;
 		};
 		ECE3B1F61235F1AA00406672 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(AZBUILD)";
+				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-				);
-				LD_RUNPATH_SEARCH_PATHS = "$(AZBUILD)";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = "non-global";
 			};
 			name = Release;
 		};

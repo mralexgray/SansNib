@@ -1,11 +1,25 @@
 //  _list.masksToBounds = NO; _list.scrollMode = kCAScrollVertically;  _list.alignment = AZTop;
 
-#import <AtoZ/AtoZ.h>
-#import <SansNib.h> 
+#import "sans.h"
 
-CLANG_IGNORE_PROTOCOL @implementation SansList
+@interface  DebugLayer : NSObject
+//@property (NATOM)  NSC * color;
+//+ (INST)     addToLayer:(CAL*)l
+//                aligned:(AZPOS)a
+//                boundTo:(id)x
+//                    key:(NSS*)k;
+@end
 
--   (id) initWithFrame:(NSR)f       { SUPERINITWITHFRAME(f); AZBlockSelf(_me); _visibleRange = RNG.new;
+@interface SansList  () // <ArrayLike>
+//@property (NATOM)  RNG * visibleRange;
+@end
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignore "-Wprotocol"
+
+@implementation SansList
+/*
+-   (id) initWithFrame:(NSRect)f       { SUPERINITWITHFRAME(f); AZBlockSelf(_me); _visibleRange = RNG.new;
 
   self.setupHostView.sublayers  = @[_list = [CATransformLayer  layerWithFrame:f mask:CASIZEABLE],
                                     _info = [CAL noHitLayerWithFrame:f mask:CASIZEABLE]];
@@ -59,7 +73,7 @@ CLANG_IGNORE_PROTOCOL @implementation SansList
 
 - (CAL*) addLayer { _visibleRange.length++;
 
-  id<DrawableObject>x = [self.storage normal:_visibleRange.max];
+  id<Drawable>x = [self.storage normal:_visibleRange.max];
   CAL           * new = [[CAL layerWithFrame:_list.bounds mask:kCALayerWidthSizable] named:_visibleRange.stringValue];   //  newL.aPoint = AZAnchorTop;
   new.drawBlock       = ^(CAL*d) { !x.drawObjectBlock ?: x.drawObjectBlock(x,d.bounds);
   
@@ -72,134 +86,163 @@ CLANG_IGNORE_PROTOCOL @implementation SansList
   [new b:@"boundsHeight" tO:x wKP:@"span" o:nil];   new.nDoBC = YES;  new.animatesResize = NO; [_list addSublayer:new];  [_info setNeedsDisplay];
   return new;
 }
+*/
+@end
+#pragma clang diagnostic pop
+//CLANG_POP
 
 
-//        XX(x.constraints);
-        //        [x setNeedsDisplay];
-        //        CABA *ani     = [CABA animationWithKeyPath:@"bounds.size.height"];
-        //        [CATRANNY transactionWithLength:2 actions:^{
-        //          ani.fromValue = @(x.boundsHeight);
-        //          x.boundsHeight += z.expansionDelta;
-        //          ani.toValue   = @(x.bounds.size.height);
-        //          ani.removedOnCompletion = NO;
-        //          [ani setCompletion:^(CAAnimationDelegate *delegate) { [x setNeedsDisplay]; }];
-        //          [x addAnimation:ani];
-        //          for (CAL* obj in [list.sublayers subarrayFromIndex:x.siblingIndex+1]) {
-        //            [ani setKeyPath:@"position.y"];
-        //            ani.fromValue = @(obj.positionY);
-        //            ani.toValue = @(obj.positionY = obj.positionY - z.expansionDelta);
-        ////            ani.toValue   = @(obj.positionY = obj.position.y + change);//AZVpoint(AZPointOffsetY(obj.position, z.expanded ? -change : change));
-        //            [obj addAnimation:ani];
-        //          }
-        //        }];
+#pragma mark - disabled during migration
 
-        //        [list setNeedsLayout];
-        //        id x; if (!(x = [self hit:e.locationInWindow])) return; [x toggleBoolForKey:@"expanded"]; [self.layer setNeedsLayout]; XX(((NSC*)x).nameOfColor);
-//  [_list setKVOBlock:^(CALayer *l, NSString *k, id val) { if (SameString(k,@"scrollMode")) ;;  NSLog(@"kvoblock:%@ k:%@ v:%@",l, k, val);  }];
+@implementation DebugLayer { @public CALayer *layer; CATextLayer* debugText; }
 
-//- (BOOL) isOpaque             { return YES; }
-//- (BOOL) wantsDefaultClipping { return NO;  }
+/*
 
++ (INST) addToLayer:(CAL*)l aligned:(AZPOS)a boundTo:(id)x key:(NSS*)k  { DebugLayer * new = self.class.new;
 
-//  [self setKVOBlock:^(SansList *me, NSString *kp, NSDictionary *x) { objswitch(kp);
-//  
-//    objcase(@"scrollOffset") [me.list scrollBy:[x floatForKey:@"value"]]; XX([x floatForKey:@"value"]);
-//    endswitch
-//  }];
-    
-//  } observeTarget:self keyPath:@"scrollOffset" options:0 block:^(MAKVONotification *n) {  [n.observer setNeedsDisplay]; }];
-//@"position" tO:self wKP:@"scrollOffset" o:nil];
-//  [_list disableResizeActions];
-//  [self addObserverForKeyPaths:@[@"scrollOffset", @"storage.@count", @"orientation"] options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld task:^(__typeof(self) o, NSString *kp, NSDictionary *x) {
-//  [_info observeTarget:self keyPath:@"scrollOffset" options:0 block:^(MAKVONotification *n) { XX(n); [n.observer setNeedsDisplay]; }];
-//    objswitch(kp);
-//    objcase(@"orientation",     // [o.list removeSublayers];
-//            @"storage.@count")
-//      objcase(@"scrollOffset")
-//        [CATRANNY immediately:^{
-//          CGF sOff = x.newNum.fV;
-//          while (o.storage.count && (!o.list.sublayers.count || o.list.lastSublayer.frameMinY > 0)) {
-//            NSLog(@"adding a Layer to %lu existing, as o.list.lastSublayer.frameMinY = %f", o.list.sublayers.count, o.list.lastSublayer.frameMinY);
-//            ctrMax++; if (ctrMax > 1000) NSLog(@"TERMINATE"), [NSApp terminate:nil];
-//            [o.list setNeedsLayout];
-//          }
-//          [o.list scrollTo:sOff];
-//        }];
-//    endswitch
-//    [o.info setNeedsDisplay];
-//  }];
+  [l addSublayer:new->layer       = [CAL noHitLayerWithFrame:AZRectBy(100,100)]];//AZCornerRectPositionedWithSize(l.bounds,a,(NSSZ){100,100})]];
+  new->layer.position               = (NSP){l.width,0};
+  new->layer.anchorPoint          = AZAnchorBottomRight;
+  new->layer.arMASK               = AZPositionToAutoresizingMask(a);
+  //  new->layer.alignment            = a;
+  new->layer.sublayers            = @[new->debugText = [CATXTL noHitLayerWithFrame:AZInsetRect(new->layer.bounds, 10)]];
+  new->debugText.fontSize         = 14;
+  new->debugText.foregroundColor  = cgWHITE;
+  //  new->debugText.alignment        = a;
+  new->debugText.font             = (__bridge CGFontRef)@"UbuntuMono-Bold";
+  [new->debugText b:@"bounds" tO:new->debugText wKP:@"stringBounds" o:nil];
+  [new->layer     b:@"bounds" tO:new->debugText wKP:@"bounds" t:^id(id value) { return AZVrect(AZScaleRect([value rectValue], 1.3)); }];
+  [new->debugText b:@"string" tO:x wKP:k o:nil];
 
+  return new;
+  //  [_debugInfo adjustBoundsToFit];  selfLayer.frame = _debugInfo.bounds;
+}
+- (void) setColor:(NSColor *)color { layer.backgroundNSColor = color; }
+@end
+*/
+@end
 
+/*
+        XX(x.constraints);
+        [x setNeedsDisplay];
+        CABA *ani     = [CABA animationWithKeyPath:@"bounds.size.height"];
+        [CATRANNY transactionWithLength:2 actions:^{
+				ani.fromValue = @(x.boundsHeight);
+          x.boundsHeight += z.expansionDelta;
+   = @(x.bounds.size.height);
+          ani.removedOnCompletion = NO;
+          [ani setCompletion:^(CAAnimationDelegate *delegate) { [x setNeedsDisplay]; }];
+          [x addAnimation:ani];
+        for (CAL* obj in [list.sublayers subarrayFromIndex:x.siblingIndex+1]) {
+            [ani setKeyPath:@"position.y"];
+           ani.fromValue = @(obj.positionY);
+            ani.toValue = @(obj.positionY = obj.positionY - z.expansionDelta);
+//            ani.toValue   = @(obj.positionY = obj.position.y + change);//AZVpoint(AZPointOffsetY(obj.position, z.expanded ? -change : change));
+           [obj addAnimation:ani];
+          }
+     }];
 
-//  XX(newL.constraints); newL.debug  = YES; if (!_list.sublayers.count) newL.position = AZAnchorPointOfActualRect(_list.frame, AZTop);
+        [list setNeedsLayout];
+        id x; if (!(x = [self hit:e.locationInWindow])) return; [x toggleBoolForKey:@"expanded"]; [self.layer setNeedsLayout]; XX(((NSC*)x).nameOfColor);
+  [_list setKVOBlock:^(CALayer *l, NSString *k, id val) { if (SameString(k,@"scrollMode")) ;;  NSLog(@"kvoblock:%@ k:%@ v:%@",l, k, val);  }];
 
-//  [newL b:@"positionY" to:@"siblingIndex" using:^id(NSN* v) {
-//
-//      id y = @(v.uIV == 0 ? l.boundsMaxY + _scrollOffset : [ll.siblingPrev frameMinY]);
-//      XX(y);
-//      return y; } type:BindTypeTransform];
+- (BOOL) isOpaque             { return YES; }
+- (BOOL) wantsDefaultClipping { return NO;  }
+  [self setKVOBlock:^(SansList *me, NSString *kp, NSDictionary *x) { objswitch(kp);
+  
+    objcase(@"scrollOffset") [me.list scrollBy:[x floatForKey:@"value"]]; XX([x floatForKey:@"value"]);
+    endswitch
+  }];
+  } observeTarget:self keyPath:@"scrollOffset" options:0 block:^(MAKVONotification *n) {  [n.observer setNeedsDisplay]; }];
+@"position" tO:self wKP:@"scrollOffset" o:nil];
+  [_list disableResizeActions];
+  [self addObserverForKeyPaths:@[@"scrollOffset", @"storage.@count", @"orientation"] options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld task:^(__typeof(self) o, NSString *kp, NSDictionary *x) {
+  [_info observeTarget:self keyPath:@"scrollOffset" options:0 block:^(MAKVONotification *n) { XX(n); [n.observer setNeedsDisplay]; }];
+    objswitch(kp);
+    objcase(@"orientation",     // [o.list removeSublayers];
+            @"storage.@count")
+      objcase(@"scrollOffset")
+        [CATRANNY immediately:^{
+          CGF sOff = x.newNum.fV;
+          while (o.storage.count && (!o.list.sublayers.count || o.list.lastSublayer.frameMinY > 0)) {
+            NSLog(@"adding a Layer to %lu existing, as o.list.lastSublayer.frameMinY = %f", o.list.sublayers.count, o.list.lastSublayer.frameMinY);
+            ctrMax++; if (ctrMax > 1000) NSLog(@"TERMINATE"), [NSApp terminate:nil];
+            [o.list setNeedsLayout];
+          }
+          [o.list scrollTo:sOff];
+        }];
+    endswitch
+    [o.info setNeedsDisplay];
+  }];
+  
+  XX(newL.constraints); newL.debug  = YES; if (!_list.sublayers.count) newL.position = AZAnchorPointOfActualRect(_list.frame, AZTop);
+  [newL b:@"positionY" to:@"siblingIndex" using:^id(NSN* v) {
 
-//- (void) layoutSublayersOfLayer:(CAL*)l {
-//
-//  while (!l.sublayers.count || l.sublayers.count < 4) {// l.lastSublayer.frameMinX > 0) {
-//
-////    if (!self.storage.count) 
-//    CAL *ll = [CAL layerWithFrame:AZRectBy(l.width,33) mask:kCALayerWidthSizable];
-//    [l addSublayer:ll];
-//    NSO* x = [self.storage normal:AZMaxRange(_visibleRange)];
-//    [ll b:@"boundsHeight" tO:x wKP:@"span" o:nil];
-//    if (x.drawObjectBlock) ll.drawInContextBlk = ^(CAL*d) { x.drawObjectBlock(x,d.bounds);
-//      [d.description.attributedWithDefaults drawInRect:d.bounds aligned:AZBtmRgt backgroundColor:BLACK];
-//    };
-//    ll.name = AZRangeToString(_visibleRange);
-//    ll.nDoBC  = YES;
-//    ll.aPoint = AZAnchorTop;
-//    [ll b:@"positionY" to:@"siblingIndex" using:^id(NSN* v) {
-//
-//      id y = @(v.uIV == 0 ? l.boundsMaxY + _scrollOffset : [ll.siblingPrev frameMinY]);
-//      XX(y);
-//      return y; } type:BindTypeTransform];
-//
-////    [ll b:@"positionY" tO:ll wKP:@"siblingIndex" t:^id(NSN* v) {
-////      return !v.uIV ? @(l.height + _scrollOffset)
-////                    : [[l.sublayers normal:v.uIV - 1] vFK:@"frameMinY"];
-////    }];
-////    [ll addObserverForKeyPath:@"siblingIndex" task:^(id sender) {
-////      XX(sender); NSUI sIdx = [sender unsignedIntForKey:@"siblingIndex"];
-////      [sender setPositionY:sIdx ? l.height + _scrollOffset : [l.sublayers[sIdx - 1] floatValueForKey:@"frameMinY"]];
-////    }];
-//
-////    ll.positionY = !ll.siblingIndex ? l.height + _scrollOffset : [l.sublayers[ll.siblingIndex - 1] frameMinY];
-//
-//    _visibleRange.location++;
-//    _visibleRange.length++;
-//    [_info setNeedsDisplay];
-////    XX(l.sublayers);
-//  }
-////  l.frameMinX
-//  XX([l.sublayers vFK:@"siblings"]);//frameMinX"]);
-//}
+      id y = @(v.uIV == 0 ? l.boundsMaxY + _scrollOffset : [ll.siblingPrev frameMinY]);
+      XX(y);
+      return y; } type:BindTypeTransform];
+*/
+/*- (void) layoutSublayersOfLayer:(CAL*)l {
 
-//- (void) setDrawOffset:(CGF)dOff { _drawOffset = dOff; CGF nudge; RNG newR = _visibleRange;
-//
-//  while (_drawOffset > (nudge = [self spanOfObjectAtIndex:newR.location])) // List is moving UP!
-//    newR.location++, _drawOffset -= nudge;
-//  while (_drawOffset < (nudge = [self spanOfObjectAtIndex:newR.location])) // List is moving DOWN!
-//    newR.location--, _drawOffset += nudge;
-//  self.visibleRange = newR;
-//}
-//- (void) setScrollOffset:(CGF)scrollOffset { IF_RETURN(_scrollOffset == scrollOffset);
-//
-//  CAL *keystone;
-//  while (_list.sublayers.count && (keystone = [_list.sublayers.first objectByIncrementing:@"frameMinY" by:@(scrollOffset - _scrollOffset)]));
-//    if(keystone.frameMinY > _list.boundsMaxY) [keystone removeFromSuperlayer];
-//  if (!keystone) {
-//    [_list addSublayer:keystone = [CAL layerWithFrame:AZRectBy(self.width,0) mask:kCALayerWidthSizable]];
-//    keystone.nDoBC  = YES;
-//    keystone.aPoint = AZAnchorTop;
-//  }
-//}
+  while (!l.sublayers.count || l.sublayers.count < 4) {// l.lastSublayer.frameMinX > 0) {
 
+//    if (!self.storage.count) 
+    CAL *ll = [CAL layerWithFrame:AZRectBy(l.width,33) mask:kCALayerWidthSizable];
+    [l addSublayer:ll];
+    NSO* x = [self.storage normal:AZMaxRange(_visibleRange)];
+    [ll b:@"boundsHeight" tO:x wKP:@"span" o:nil];
+    if (x.drawObjectBlock) ll.drawInContextBlk = ^(CAL*d) { x.drawObjectBlock(x,d.bounds);
+      [d.description.attributedWithDefaults drawInRect:d.bounds aligned:AZBtmRgt backgroundColor:BLACK];
+    };
+    ll.name = AZRangeToString(_visibleRange);
+    ll.nDoBC  = YES;
+    ll.aPoint = AZAnchorTop;
+    [ll b:@"positionY" to:@"siblingIndex" using:^id(NSN* v) {
+
+      id y = @(v.uIV == 0 ? l.boundsMaxY + _scrollOffset : [ll.siblingPrev frameMinY]);
+      XX(y);
+      return y; } type:BindTypeTransform];
+
+//    [ll b:@"positionY" tO:ll wKP:@"siblingIndex" t:^id(NSN* v) {
+//      return !v.uIV ? @(l.height + _scrollOffset)
+//                    : [[l.sublayers normal:v.uIV - 1] vFK:@"frameMinY"];
+//    }];
+//    [ll addObserverForKeyPath:@"siblingIndex" task:^(id sender) {
+//      XX(sender); NSUI sIdx = [sender unsignedIntForKey:@"siblingIndex"];
+//      [sender setPositionY:sIdx ? l.height + _scrollOffset : [l.sublayers[sIdx - 1] floatValueForKey:@"frameMinY"]];
+//    }];
+
+//    ll.positionY = !ll.siblingIndex ? l.height + _scrollOffset : [l.sublayers[ll.siblingIndex - 1] frameMinY];
+
+    _visibleRange.location++;
+    _visibleRange.length++;
+    [_info setNeedsDisplay];
+//    XX(l.sublayers);
+  }
+//  l.frameMinX
+  XX([l.sublayers vFK:@"siblings"]);//frameMinX"]);
+}
+*/
+/*- (void) setDrawOffset:(CGF)dOff { _drawOffset = dOff; CGF nudge; RNG newR = _visibleRange;
+
+  while (_drawOffset > (nudge = [self spanOfObjectAtIndex:newR.location])) // List is moving UP!
+    newR.location++, _drawOffset -= nudge;
+  while (_drawOffset < (nudge = [self spanOfObjectAtIndex:newR.location])) // List is moving DOWN!
+    newR.location--, _drawOffset += nudge;
+  self.visibleRange = newR;
+}
+- (void) setScrollOffset:(CGF)scrollOffset { IF_RETURN(_scrollOffset == scrollOffset);
+
+  CAL *keystone;
+  while (_list.sublayers.count && (keystone = [_list.sublayers.first objectByIncrementing:@"frameMinY" by:@(scrollOffset - _scrollOffset)]));
+    if(keystone.frameMinY > _list.boundsMaxY) [keystone removeFromSuperlayer];
+  if (!keystone) {
+    [_list addSublayer:keystone = [CAL layerWithFrame:AZRectBy(self.width,0) mask:kCALayerWidthSizable]];
+    keystone.nDoBC  = YES;
+    keystone.aPoint = AZAnchorTop;
+  }
+}
+*/
 /*
 - (void) setVisibleRange:(RNG)vR { if (AZEqualRanges(vR, _visibleRange)) return;
 
@@ -262,9 +305,6 @@ CLANG_IGNORE_PROTOCOL @implementation SansList
   [_info setNeedsDisplay];
 }
 */
-@end
-CLANG_POP
-
 
 //  if (nudge > 0)
 //    while (_drawOffset > (nudge = [self spanOfObjectAtIndex:_visibleRange.location])) // List is moving UP!
@@ -421,29 +461,6 @@ CLANG_POP
 //+ (SET*) kPfVAVfK:(NSS*)k { return SameString(k, @"debugString") ? SETWITHSUPER(@"listLayer.position") : SUPERSET; }  // , @"listLayer.bounds", @"scrollOffset"  SameString(k, @"viewableRect") ? NSSET(@"scrollOffset") ;
 
 
-@implementation DebugLayer { @public CAL *layer; CATXTL * debugText; }
-
-+ (INST) addToLayer:(CAL*)l aligned:(AZPOS)a boundTo:(id)x key:(NSS*)k  { DebugLayer * new = self.class.new;
-
-  [l addSublayer:new->layer       = [CAL noHitLayerWithFrame:AZRectBy(100,100)]];//AZCornerRectPositionedWithSize(l.bounds,a,(NSSZ){100,100})]];
-  new->layer.position               = (NSP){l.width,0};
-  new->layer.anchorPoint          = AZAnchorBottomRight;
-  new->layer.arMASK               = AZPositionToAutoresizingMask(a);
-  //  new->layer.alignment            = a;
-  new->layer.sublayers            = @[new->debugText = [CATXTL noHitLayerWithFrame:AZInsetRect(new->layer.bounds, 10)]];
-  new->debugText.fontSize         = 14;
-  new->debugText.foregroundColor  = cgWHITE;
-  //  new->debugText.alignment        = a;
-  new->debugText.font             = (__bridge CGFontRef)@"UbuntuMono-Bold";
-  [new->debugText b:@"bounds" tO:new->debugText wKP:@"stringBounds" o:nil];
-  [new->layer     b:@"bounds" tO:new->debugText wKP:@"bounds" t:^id(id value) { return AZVrect(AZScaleRect([value rectValue], 1.3)); }];
-  [new->debugText b:@"string" tO:x wKP:k o:nil];
-
-  return new;
-  //  [_debugInfo adjustBoundsToFit];  selfLayer.frame = _debugInfo.bounds;
-}
-- (void) setColor:(NSColor *)color { layer.backgroundNSColor = color; }
-@end
 
 /*
  l.boundsHeight = MAX(ABS(r.origin.y), l.boundsHeight);
@@ -461,7 +478,7 @@ CLANG_POP
  - (NSUI) index { return !self.representedObject || !self.list ? NSNotFound : [self.list.storage indexOfObject:self.representedObject]; }
  - (SansList*) list { return (SansList*)self.hostView; }
  - (void) setRepresentedObject:(id)x { [super setRepresentedObject:x];
- [self b:@"name" tO:self.list wKP:@"storage.@count" t:^id(id v){ return @(self.index).sV;  }];
+ [self b:@"name" tO:self.list wKP:@"storage.@count" t:^id(id v){ return @(self.index).strV;  }];
  }
  - (void) didMoveToSuperlayer { self.boundsHeight = self.list.rowHeight;  XX(self.boundsHeight); }
  + (BOOL) needsDisplayForKey:(NSS*)k {
@@ -484,7 +501,7 @@ CLANG_POP
  _listLayer.nDoBC          = YES;
  obj.listLayer.boundsHeight += obj.rowHeight;                                              // Adjust list layer to accomodate new layer
  [new addConstraintsSuperSizeHorizontal];
- new.index ? [new addConstraint:AZConstRelAttr(kCAConstraintMaxY,@(new.index -1).sV,kCAConstraintMinY)]
+ new.index ? [new addConstraint:AZConstRelAttr(kCAConstraintMaxY,@(new.index -1).strV,kCAConstraintMinY)]
  : [new addConstraintsRelSuper:kCAConstraintMaxY];
  [AZNOTCENTER observeName:NSWindowDidEndLiveResizeNotification usingBlock:^(NSNOT*n) { [_listLayer setNeedsLayout]; }];
  if (s.selected)
@@ -561,7 +578,7 @@ CLANG_POP
 //}
 //- (NSS*) titleString {  return ((CATXTL*)self.sublayers[0]).string =
 //
-//  $(@"%@ pos:%@ %@ EXP:%@", self.name ?: @(self.siblingIndex).sV, AZStringFromPoint(self.position), AZStringFromRect(self.frame), StringFromBOOL(self.expanded));
+//  $(@"%@ pos:%@ %@ EXP:%@", self.name ?: @(self.siblingIndex).strV, AZStringFromPoint(self.position), AZStringFromRect(self.frame), StringFromBOOL(self.expanded));
 //}
 //- (void) setExpanded:(BOOL)x { IF_RETURN(x == self.expanded); [super setExpanded:x];
 //

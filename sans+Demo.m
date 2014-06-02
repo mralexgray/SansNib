@@ -1,32 +1,38 @@
-#import <AtoZ/AtoZ.h>
+
+//#import <AtoZ/AtoZ.h>
+//#import <AtoZ/AtoZ.h>
 #import <sans.h>
 
-int main(int argc, char *argv[]){ @autoreleasepool {
+int main(int argc, char *argv[]){ @autoreleasepool { static NSArray *rApps;
 
-    NSA *runningApps = [NSWorkspace.sharedWorkspace.runningApplications valueForKey:@"localizedName"];
+//    [SansNib addButton:@"I" block:^{ /*AvailableIcons();*/                                        }];
+    NSString* url = @"file:///js/jquery.terminal/examples/tilda-demo.html";
+    [Sans addButton:@"W" block:^{ [Sans addWebviewWith:url];                                }];
+    [Sans addButton:@"S" block:^{ [Sans split];                                             }];
 
-    [SansNib addButton:@"R" block:^{ SansNib.layer.contents = NSIMG.randomFunnyImage; }];
-    [SansNib addButton:@"S" block:^{ [SansNib split];                                 }];
-    [SansNib addButton:@"H" block:^{ [SansNib.view toggleBoolForKey:@"faded"];        }];
-    [SansNib addButton:@"I" block:^{ /*AvailableIcons();*/                            }];
-    [SansNib addButton:@"T" block:^{ [SansNib addTableWith:runningApps];              }];
+//    [SansNib addButton:@"R" block:^{ SansNib.layer.contents = [NSIMG .randomFunnyImage;             }];
+    [Sans addButton:@"R" block:^{ Sans.layer.contents = [NSImage imageNamed:NSImageNameAddTemplate];             }];
 
-    [AZNOTCENTER observeName:NSTableViewSelectionDidChangeNotification usingBlock:^(NSNotification *n) {
-      XX([runningApps[[n.object selectedRow]] vFK:@"drawBlock"]);
-    }];
+//    [SansNib addButton:@"H" block:^{ [SansNib.view toggleBoolForKey:@"faded"];                    }];
+//    [SansNib addButton:@"+" block:^{ [SansNib addViewWithClass:BBMeshView.class];                 }];
+//    [SansNib addButton:@"-" block:^{ IF_CAN_DO(SansNib.view.lastLastSubview,removeFromSuperview); }];
+    [Sans addButton:@"T" block:^{ [Sans addTableWith:
+       rApps = [NSWorkspace.sharedWorkspace.runningApplications valueForKey:@"localizedName"]];                }];
 
-    [SansNib addButton:@"+" block:^{ [SansNib addViewWithClass:BBMeshView.class]; }];
-    [SansNib addButton:@"-" block:^{ IF_CAN_DO(SansNib.view.lastLastSubview,removeFromSuperview); }];
+//    [AZNOTCENTER observeName:NSTableViewSelectionDidChangeNotification usingBlock:^(NSNOT*n){ 
+//      XX([rApps[[n.object selectedRow]] vFK:@"drawBlock"]);                    }];
 
+
+/*
     [SansNib addButton:@"L" block:^{ [Lasso toggle]; }];
 
-    DrawObjectBlock d = ^(NSO<Indexed> *c, NSR r){
+    ObjRectBlock d = ^(NSO<Drawable, Indexed> *c, NSR r){
 
       NSR cRect = r;
       if (c.expanded) {
-        cRect.origin.y += r.size.height;
-        cRect.size.height = [c spanCollapsed];
-        cRect.origin.y -= [c spanCollapsed];
+        cRect.origin.y   += r.size.height;
+        cRect.size.height = c.spanCollapsed;
+        cRect.origin.y   -= c.spanCollapsed;
       }
       NSRectFillWithColor(cRect,(NSC*)c);
       NSAS *s = $(@"%@ %lu of %lu (%@)",((NSC*)c).nameOfColor, c.index, c.indexMax, c.expanded ? @"EXPANDED" : @"COLLAPSED").attributedWithDefaults;
@@ -35,35 +41,42 @@ int main(int argc, char *argv[]){ @autoreleasepool {
         NSRectFillWithColor(AZRectTrimmedOnTop(r, [c spanCollapsed]), CHECKERS);
       }
     };
-    SansList * list = [SansList viewWithFrame:SansNib.view.bounds mask:NSSIZEABLE];
+    SansList * list = [SansList viewWithFrame:SansNib.view.bounds mask:NSViewWidthSizeAb];
     NSA*pal = [AtoZ.globalPalette map:^id(NSO* obj) {
-      [obj setSpanCollapsed:50 expanded:100];
-      [obj setDrawObjectBlock:d];
+      static dispatch_once_t onceToken; dispatch_once(&onceToken, ^{
+        class_addProtocol(obj.class, @protocol(Drawable));
+      });
+      [(id<Drawable>)obj setSpanCollapsed:50 expanded:100];
+      [(id<Drawable>)obj setDrawObjectBlock:d];
 
       return obj;
     }];
-    [list addObjects:pal];
+    [(id)list addObjects:pal];
     [SansNib.view addSubview:list];//[AZSimpleView viewWithFrame:SansNib.view.bounds]];
-    [SansNib addButton:@"⭕️" block:^{ [list addObjects:[RANDOMPAL map:^id(NSO* obj) {
-      [obj setSpanCollapsed:RAND_FLOAT_VAL(20, 89) expanded:100];
-      [obj setDrawObjectBlock:d];
+    [SansNib addButton:@"⭕️" block:^{ [(id)list addObjects:[RANDOMPAL map:^id(NSO* obj) {
+      static dispatch_once_t onceToken; dispatch_once(&onceToken, ^{
+        class_addProtocol(obj.class, @protocol(Drawable));
+      });
+      [(id<Drawable>)obj setSpanCollapsed:RAND_FLOAT_VAL(20, 89) expanded:100];
+      [(id<Drawable>)obj setDrawObjectBlock:d];
       return obj;
     }]];  }];// ][[SansNib.view firstSubviewOfClass:SansList.class] sV:@(RAND_FLOAT_VAL(10,50)) fK:@"rowHeight"]; }];
     [SansNib addButton:@"🔥" block:^{ [SansNib addViewWithSplit:list]; }];
-    [SansNib addButton:@"🐇" block:^{ [SansNib addTableWith:((SansList*)[SansNib.view firstSubviewOfClass:SansList.class]).storage]; }];
+    [SansNib addButton:@"🐇" block:^{ [SansNib addTableWith:[(SansList*)[SansNib.view firstSubviewOfClass:SansList.class] valueForKey:@"storage"]]; }];
+*/
+//    [SansNib.eventBlocks addObject:^(NSEvent *e) {
+//      static CAShapeLayerAuto *zLayer = nil;
+//      if      (e.type == NSLeftMouseDragged &&  zLayer && zLayer.isHidden) [zLayer fadeIn];
+//      else if (e.type == NSLeftMouseDragged && !zLayer) {}
+//    }];
 
-    [SansNib.eventBlocks addObject:^(NSEvent *e) {
-      static CAShapeLayerAuto *zLayer = nil;
-      if      (e.type == NSLeftMouseDragged &&  zLayer && zLayer.isHidden) [zLayer fadeIn];
-      else if (e.type == NSLeftMouseDragged && !zLayer) {}
-    }];
-    [SansNib run];
+    [Sans run];
   }
   return 0;
 }
 
 /*    [RANDOMPAL do:^(id obj) {
-      NSO <DrawableObject>*new = (id)NSO.new;
+      NSO <Drawable>*new = (id)NSO.new;
       new.representedObject = obj;
       new.drawBlock = ^(NSR r){
 //      new.associatedDictionary[@"dBlock"] = ^(NSR r){

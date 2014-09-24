@@ -6,36 +6,33 @@ static char ACTION_KEY;
 @implementation NSMenu (Sans)
 - (void) setItemArray:(NSArray*)items { for (NSMenuItem*m in items) [self addItem:m]; }
 @end
-
 @implementation NSMenuItem (Sans)
 + title:(NSString*)tit key:(NSString*)k action:(id)blk {
 
   NSMenuItem *menu = [[self allocWithZone:[NSMenu menuZone]] initWithTitle:tit action:@selector(act:) keyEquivalent:k];
-  menu.target = menu, menu.enabled = YES;
-  if (blk != NULL)
-    objc_setAssociatedObject(menu, ACTION_KEY, blk, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+  menu.target      = menu, menu.enabled = YES;
+  if (blk) objc_setAssociatedObject(menu, ACTION_KEY, blk, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
   return menu;
 }
-- (void) act:(NSMenuItem*)act { void(^x)(NSMenuItem*); if ((x = objc_getAssociatedObject(self,_cmd))) x(self);  }
+- (void) act:(id)act { void(^x)(id); if ((x = objc_getAssociatedObject(self,ACTION_KEY))) x(self);  }
 @end
-
 
 @implementation  NSView (SansNib)
 
-- (NSSplitView*) bisect { NSSplitView *newSplt = nil; @synchronized(self) {
+- (NSSplitView*) bisect { NSSplitView *split = nil; @synchronized(self) {
 
-    newSplt = [NSSplitView.alloc initWithFrame:self.bounds];
-    newSplt.autoresizingMask= self.autoresizingMask;
-    newSplt.vertical              = [self isKindOfClass:NSSplitView.class] ? !((NSSplitView*)self).isVertical : YES;
-    newSplt.dividerStyle          = NSSplitViewDividerStyleThick;
+    split = [NSSplitView.alloc initWithFrame:self.bounds];
+    split.autoresizingMask  = self.autoresizingMask;
+    split.vertical              = [self isKindOfClass:NSSplitView.class] ? !((NSSplitView*)self).isVertical : YES;
+    split.dividerStyle          = NSSplitViewDividerStyleThick;
     __strong __typeof__(self) selfish = [self isKindOfClass:NSClipView.class] ? self.enclosingScrollView : self;
-    [self isEqual:self.window.contentView] ? [self.window setContentView:newSplt]
-                                           : [self.superview addSubview:newSplt];
-    [newSplt addSubview:selfish];
-    [newSplt addSubview:[NSBox.alloc initWithFrame:self.bounds]];
+    [self isEqual:self.window.contentView] ? [self.window setContentView:split]
+                                           : [self.superview addSubview:split];
+    [split addSubview:selfish];
+    [split addSubview:[NSBox.alloc initWithFrame:self.bounds]];
     //[AZSimpleView withFrame:self.bounds color:AtoZ.globalPalette.nextNormalObject]];
   }
- return newSplt;
+ return split;
 }
 
 -        (WebView*) addWebviewWith:(NSString*)url {
@@ -45,7 +42,7 @@ static char ACTION_KEY;
   xx.mainFrameURL = url; return xx;
 }
 
-- (NSTableView*) addTableWith:(id)a    {         NSView * newv = Sans.split.subviews.lastObject;
+- (NSTableView*) addTableWith:(id)a    {         NSView * newv = self.sans.split.subviews.lastObject;
 
   [self addSubview:                         ({   NSScrollView * 🆂;
     [🆂 = NSScrollView.new setDocumentView: ({    NSTableView * 𝖳;

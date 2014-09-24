@@ -1,5 +1,7 @@
 
 #import "sans.h"
+@import AtoZ;
+
 
 @interface SansNibWindowButton : NSObject
 @property         CAShapeLayer * box;
@@ -15,34 +17,34 @@ typedef NS_ENUM(int,DBDragMode)
 
 @interface       SansNibWindow : NSWindow
 
-@property (nonatomic)	BOOL		snapsToEdges;		/* whether or not the window snaps to edges */
-@property (nonatomic)	CGFloat		snapTolerance,	/* distance from edge within which snapping occurs */
-                                padding,minWidth;
-@property (nonatomic)	 BOOL		snapping;		/* whether we're currently snapping to an edge */
-@property (nonatomic)	 NSPoint		dragStartLocation;	/* keeps track of last drag's mousedown point */
-@property (nonatomic)	NSSize		clickDistanceFromWindowEdge;
-@property (nonatomic)	DBDragMode	currentDragMode;
-@property (unsafe_unretained)	id			controller;
+//@property (nonatomic)	BOOL		snapsToEdges;		/* whether or not the window snaps to edges */
+//@property (nonatomic)	CGFloat		snapTolerance,	/* distance from edge within which snapping occurs */
+//                                padding,minWidth;
+//@property (nonatomic)	 BOOL		snapping;		/* whether we're currently snapping to an edge */
+//@property (nonatomic)	 NSPoint		dragStartLocation;	/* keeps track of last drag's mousedown point */
+//@property (nonatomic)	NSSize		clickDistanceFromWindowEdge;
+//@property (nonatomic)	DBDragMode	currentDragMode;
+//@property (unsafe_unretained)	id			controller;
 
-- (void) saveFrame;
-- (void) loadFrame;
-
-	/* Accessor methods */
-- (void) setOnScreen: (BOOL) flag;
-- (void) setSticky:(BOOL)flag;
+//- (void) saveFrame;
+//- (void) loadFrame;
+//
+//	/* Accessor methods */
+//- (void) setOnScreen: (BOOL) flag;
+//- (void) setSticky:(BOOL)flag;
 
 @property               NSView * userview;
-@property              CAShapeLayer * mask;
+//@property              CAShapeLayer * mask;
 @property              CALayer * userlayer,
                                * hitLayer;
 @property              CGFloat   barHeight,    // this is the fake "title bar"
                                  cornerRadius;
 @end
-@interface         SansNibView : NSView @end
-@implementation SansNibView
-- (BOOL)acceptsFirstMouse:(NSEvent *)e { return YES; }
+//@interface         SansNibView : NSView @end
+//@implementation SansNibView
+//- (BOOL)acceptsFirstMouse:(NSEvent *)e { return YES; }
 //- (void) drawRect:(NSRect)d { [NSColor.redColor set]; NSRectFill(d); [super drawRect:d]; }
-@end
+//@end
 @implementation SansNibWindow
 
 - (BOOL) acceptsFirstResponder { return YES; }
@@ -52,7 +54,7 @@ typedef NS_ENUM(int,DBDragMode)
 -          (id) init {
 
   self = [super initWithContentRect:NSInsetRect(NSScreen.mainScreen.frame,300,200) styleMask:0|8 backing:2 defer:NO];
-  self.contentView                = SansNibView.new;
+//  self.contentView                = .new;
 //  self.acceptsFirstResponder      =
   self.acceptsMouseMovedEvents    =
   self.movableByWindowBackground  = YES;
@@ -74,17 +76,21 @@ typedef NS_ENUM(int,DBDragMode)
   [self.contentView   setLayer:l];
   [self.contentView setWantsLayer:YES];
   _userlayer  = CALayer.layer;
-  _mask = CAShapeLayer.new;
+  _userlayer.arMASK = CASIZEABLE;
+//  CASHLA *_mask          = [CASHLA layerNamed:@"SansNibWindowMask"];
+//  [_mask setPathForRect:^NSBezierPath *(id shp) { return [NSBP bezierPathWithRoundedRect:[shp bounds] cornerRadius:_cornerRadius inCorners:OSBottomLeftCorner|OSBottomRightCorner]; }];
 //  CASHLA *mask          = [CASHLA layerNamed:@"SansNibWindowMask"];
 //  [mask setPathForRect:^NSBezierPath *(id shp) { return [NSBP bezierPathWithRoundedRect:[shp bounds] cornerRadius:_cornerRadius inCorners:OSBottomLeftCorner|OSBottomRightCorner]; }];
-  _mask.fillColor        = NSColor.blackColor.CGColor;
-  _mask.strokeColor      = NSColor.clearColor.CGColor;
-  _userlayer.mask           = _mask;
+//  _mask.fillColor        = NSColor.blackColor.CGColor;
+//  _mask.strokeColor    /  = NSColor.clearColor.CGColor;
+//  _userlayer.mask           = _mask;
+
   _userlayer.backgroundColor            = NSColor.orangeColor.CGColor;
   _userview.layer           = _userlayer;
   _userview.wantsLayer      =
   _userview.layerUsesCoreImageFilters = YES;
   [_userlayer setCompositingFilter:[CIFilter filterWithName:@"CIOverlayBlendMode"]];
+
 
   [NSEvent addLocalMonitorForEventsMatchingMask:NSMouseMovedMask|NSLeftMouseUpMask|NSLeftMouseDownMask|NSScrollWheelMask handler:^NSEvent*(NSEvent *ev) {
 
@@ -92,21 +98,20 @@ typedef NS_ENUM(int,DBDragMode)
 //    [Lasso enabled] && !!(self.hitLayer = [_layer hitTestSubs:ev.locationInWindow]) ? [Lasso rope:_hitLayer] : [Lasso setFree];
 
     if (ev.type == NSLeftMouseUp) {
-      CALayer *z = [[self.contentView layer] hitTest:ev.locationInWindow];
+      CALayer *z = [self.windowLayer hitTest:ev.locationInWindow];
       //XX(z);
       CALayer* box = [z.sublayers filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
-        return [[evaluatedObject name]rangeOfString:@"box"].location != NSNotFound;
+        return [[evaluatedObject vFK:@"name"]rangeOfString:@"box"].location != NSNotFound;
       }]][0];
       //XX(box.owner);
+      void(^r)(NSEvent*);
+      if (box && (r    = [box valueForKey:@"eventBlock"]))  r(ev);
+//            [box blinkLayerWithColor:BLACK];
 
-      if (box){
-
-//        [box blinkLayerWithColor:BLACK];
-        void(^r)(NSEvent*) = [box valueForKey:@"eventBlock"];  r(ev);
 //        box.owner.selected = !box.owner.selected;
-      }
+//      }
     }
-    for (EventBlock i in Sans.handlers.arrangedObjects) i(ev);
+    for (EventBlock i in self.sans.handlers.arrangedObjects) i(ev);
     return ev;
   }];
   return self;
@@ -139,7 +144,7 @@ typedef NS_ENUM(int,DBDragMode)
   framelayer.delegate             = self;         [framelayer setNeedsDisplay];
   [self.contentView setLayer:framelayer];
 //  [self.contentView setWantsLayer:
-  id fview = [self.contentView superview];
+  id fvie'w = [self.contentView superview];
   _Lens flayer =  CALayer.new; flayer.backgroundColor = NSColor.redColor.CGColor;
   [fview setWantsLayer:YES];
   [fview setWantsLayer:_userview.layerUsesCoreImageFilters = YES];
@@ -173,7 +178,7 @@ typedef NS_ENUM(int,DBDragMode)
                                drawInBezierPath:p angle:270];
     [NSGraphicsContext  restoreGraphicsState];
 
-//  [p bezel]; // bezel it for even prettier edges!
+  [p bezel]; // bezel it for even prettier edges!
 }
 -        (BOOL) performKeyEquivalent:(NSEvent*)e { return YES; }
 
@@ -182,7 +187,7 @@ typedef NS_ENUM(int,DBDragMode)
 *****************************
 The DeskBrowse source code is the legal property of its developers, Joel Levin and Ian Elseth
 *****************************
-*/
+
 @synthesize controller, currentDragMode, dragStartLocation;
 @synthesize snapTolerance, snapping, snapsToEdges, clickDistanceFromWindowEdge, minWidth, padding;
 
@@ -219,30 +224,30 @@ extern OSStatus CGSClearWindowTags(const CGSConnection cid, const CGSWindow wid,
 //}
 
 
-/*
+
  * 
  *	Mouse event handlers
  *	Since we don't have a titlebar, we handle window-dragging ourselves.
  *
- */
+(*/
 - (void) sendEvent:(NSEvent *)e { // NSMouseMovedMask|NSLeftMouseUpMask|NSLeftMouseDownMask|NSScrollWheelMask
 //    XX([_view hitTest:ev.locationInWindow]);
 //    [Lasso enabled] && !!(self.hitLayer = [_layer hitTestSubs:ev.locationInWindow]) ? [Lasso rope:_hitLayer] : [Lasso setFree];
 //    if (e.type == NSLeftMouseUp) {
-      CALayer *z = [[self.contentView layer] hitTest:e.locationInWindow];
+      CALayer *z = [self.windowLayer hitTest:e.locationInWindow];
       NSLog(@"%@", z);
 
     static BOOL s = NO;
-    e.type == NSLeftMouseUp && e.clickCount == 3 ? [self setOnScreen:s =!s] : nil;
+//    e.type == NSLeftMouseUp && e.clickCount == 3 ? [self setOnScreen:s =!s] : nil;
       //XX(z); CAL* box = [z sublayerWithNameContaining:@"box"];XX(box.owner);
 //    if (box){ [box blinkLayerWithColor:BLACK]; void(^r)(NSE*) = box [@"eventBlock"];  r(ev);
 //        box.owner.selected = !box.owner.selected;
 //      }
 //  }
-  for (EventBlock i in Sans.handlers.arrangedObjects) i(e);
+  for (EventBlock i in Sans().handlers.arrangedObjects) i(e);
   [super sendEvent:e];
 }
-
+/*
 - (void) mouseDown: (NSEvent*) theEvent { NSLog(@"%@", NSStringFromSelector(_cmd));
 
   currentDragMode		= DragModeNone;
@@ -477,11 +482,11 @@ extern OSStatus CGSClearWindowTags(const CGSConnection cid, const CGSWindow wid,
                           display: YES animate: NO];
 }
 
-
+*/
 #pragma mark -
 
 /* Accessor methods */
-
+/*
 - (void) setOnScreen: (BOOL) flag
 {
 	NSRect	frame		= [self frame];
@@ -507,6 +512,7 @@ extern OSStatus CGSClearWindowTags(const CGSConnection cid, const CGSWindow wid,
 		[self setIsVisible: flag];
 	}
 }
+*/
 @end
 
 @implementation SansNibWindowButton

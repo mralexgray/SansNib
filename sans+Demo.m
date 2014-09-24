@@ -7,16 +7,16 @@ int main(int argc, char *argv[]){ @autoreleasepool { static NSArray *rApps;
 
 //    [SansNib addButton:@"I" block:^{ /*AvailableIcons();*/                                        }];
     NSString* url = @"file:///js/jquery.terminal/examples/tilda-demo.html";
-    [Sans addButton:@"W" block:^{ [Sans addWebviewWith:url];                                }];
-    [Sans addButton:@"S" block:^{ [Sans split];                                             }];
+    [Sans() addButton:@"W" block:^{ [Sans() addWebviewWith:url];                                }];
+    [Sans() addButton:@"S" block:^{ [Sans() split];                                             }];
 
 //    [SansNib addButton:@"R" block:^{ SansNib.layer.contents = [NSIMG .randomFunnyImage;             }];
-    [Sans addButton:@"R" block:^{ Sans.layer.contents = [NSImage imageNamed:NSImageNameAddTemplate];             }];
+    [Sans() addButton:@"R" block:^{ Sans().layer.contents = [NSImage imageNamed:NSImageNameAddTemplate];             }];
 
 //    [SansNib addButton:@"H" block:^{ [SansNib.view toggleBoolForKey:@"faded"];                    }];
 //    [SansNib addButton:@"+" block:^{ [SansNib addViewWithClass:BBMeshView.class];                 }];
 //    [SansNib addButton:@"-" block:^{ IF_CAN_DO(SansNib.view.lastLastSubview,removeFromSuperview); }];
-    [Sans addButton:@"T" block:^{ [Sans addTableWith:
+    [Sans() addButton:@"T" block:^{ [Sans() addTableWith:
        rApps = [NSWorkspace.sharedWorkspace.runningApplications valueForKey:@"localizedName"]];                }];
 
 //    [AZNOTCENTER observeName:NSTableViewSelectionDidChangeNotification usingBlock:^(NSNOT*n){ 
@@ -70,7 +70,7 @@ int main(int argc, char *argv[]){ @autoreleasepool { static NSArray *rApps;
 //      else if (e.type == NSLeftMouseDragged && !zLayer) {}
 //    }];
 
-    [Sans run];
+    [Sans() run];
   }
   return 0;
 }

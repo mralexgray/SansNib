@@ -6,12 +6,30 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		7BBC953E1946257300C0A304 /* SansSomethingAggregate */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 7BBC95641946257400C0A304 /* Build configuration list for PBXAggregateTarget "SansSomethingAggregate" */;
+			buildPhases = (
+				7BBC953D1946257300C0A304 /* ShellScript */,
+			);
+			dependencies = (
+				7BBC95401946257300C0A304 /* PBXTargetDependency */,
+			);
+			name = SansSomethingAggregate;
+			productName = SansSomethingAggregate;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		7B0F47A3193A0259007D81DF /* sans+Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0F47A11939F4E9007D81DF /* sans+Categories.m */; };
 		7B49615118BB2B4C00E5A459 /* sans+List.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B49615018BB2B4C00E5A459 /* sans+List.m */; };
 		7B53A910188DB02B0065DE13 /* SansNib in Copy Template Files To Developer Folders */ = {isa = PBXBuildFile; fileRef = 7BE03780188DAEF000C2E747 /* SansNib */; };
-		7B99B201193BD500001AADF5 /* libAtoZAutoBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B99B1FD193BD4BB001AADF5 /* libAtoZAutoBox.a */; };
 		7B9C2E9518B6A86F00D40C99 /* sans+Window.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B9C2E9218B6A86F00D40C99 /* sans+Window.m */; };
+		7BBC95471946257300C0A304 /* SansSomething.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBC95461946257300C0A304 /* SansSomething.m */; };
+		7BBC95541946257300C0A304 /* libSansSomething.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBC95391946257200C0A304 /* libSansSomething.a */; };
+		7BBC955A1946257400C0A304 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7BBC95581946257300C0A304 /* InfoPlist.strings */; };
+		7BBC955C1946257400C0A304 /* SansSomethingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBC955B1946257400C0A304 /* SansSomethingTests.m */; };
 		7BBF69C8193A0C630034CCFA /* libsans.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BC10D89181EE56E0031D473 /* libsans.dylib */; };
 		7BC10D4E181EE2210031D473 /* sans+Demo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC10D4D181EE2210031D473 /* sans+Demo.m */; };
 		7BC10DA9181EE5BD0031D473 /* sans.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BC10D65181EE2B20031D473 /* sans.m */; };
@@ -19,19 +37,33 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7B99B1FC193BD4BB001AADF5 /* PBXContainerItemProxy */ = {
+		7BBC953F1946257300C0A304 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7B99B1F7193BD4BA001AADF5 /* AtoZAutoBox.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 7BC4254D1776799C00928201;
-			remoteInfo = AtoZAutoBox;
+			containerPortal = ECE3B1F41235F1AA00406672 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7BBC95381946257200C0A304;
+			remoteInfo = SansSomething;
 		};
-		7B99B1FE193BD4BB001AADF5 /* PBXContainerItemProxy */ = {
+		7BBC95521946257300C0A304 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7B99B1F7193BD4BA001AADF5 /* AtoZAutoBox.xcodeproj */;
+			containerPortal = ECE3B1F41235F1AA00406672 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7BBC95381946257200C0A304;
+			remoteInfo = SansSomething;
+		};
+		7BBC95871946554400C0A304 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BBC95821946554400C0A304 /* SyrahUI.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 7B78F64C180A670000515A10;
-			remoteInfo = AtoZAutoBoxTests;
+			remoteGlobalIDString = F4024E0918D75C9A0028476C;
+			remoteInfo = SyrahUI;
+		};
+		7BBC95891946554400C0A304 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7BBC95821946554400C0A304 /* SyrahUI.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7BBC95211945B7F600C0A304;
+			remoteInfo = SyrahTest;
 		};
 		7BBE68311823D6510044B655 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -43,6 +75,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		7BBC95351946257200C0A304 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7BE0377F188DAE1900C2E747 /* Copy Template Files To Developer Folders */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 8;
@@ -58,12 +99,22 @@
 
 /* Begin PBXFileReference section */
 		7B0F47A11939F4E9007D81DF /* sans+Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "sans+Categories.m"; sourceTree = "<group>"; };
+		7B2E9F8519509D990075EC79 /* sans.conf.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = sans.conf.plist; sourceTree = "<group>"; };
+		7B2E9F861950A56A0075EC79 /* sans.env.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = sans.env.sh; sourceTree = "<group>"; };
 		7B35D0A9190CF8FA00D818BC /* DeveloperLib.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = DeveloperLib.xcconfig; path = ../DeveloperLib.xcconfig; sourceTree = "<group>"; };
+		7B47C50F1948A6DA00CF8D9D /* SansPluginExample.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SansPluginExample.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B47C5191948A6DA00CF8D9D /* SansStatus-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SansStatus-Info.plist"; sourceTree = "<group>"; };
 		7B49615018BB2B4C00E5A459 /* sans+List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "sans+List.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7B53A94F188DDF860065DE13 /* scratch */ = {isa = PBXFileReference; lastKnownFileType = text; lineEnding = 0; name = scratch; path = exclude/scratch; sourceTree = "<group>"; };
-		7B99B1F7193BD4BA001AADF5 /* AtoZAutoBox.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AtoZAutoBox.xcodeproj; path = ../../AtoZ.framework/Frameworks/AtoZAutoBox/AtoZAutoBox.xcodeproj; sourceTree = "<group>"; };
 		7B9C2E9218B6A86F00D40C99 /* sans+Window.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "sans+Window.m"; sourceTree = "<group>"; };
 		7BAA864A19029AE3007D9AAD /* libsans-info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "libsans-info.plist"; sourceTree = "<group>"; };
+		7BBC95391946257200C0A304 /* libSansSomething.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSansSomething.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BBC95461946257300C0A304 /* SansSomething.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SansSomething.m; path = ../SansSomething/SansSomething.m; sourceTree = "<group>"; };
+		7BBC954C1946257300C0A304 /* SansSomethingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SansSomethingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BBC95571946257300C0A304 /* SansSomethingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SansSomethingTests-Info.plist"; sourceTree = "<group>"; };
+		7BBC95591946257300C0A304 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7BBC955B1946257400C0A304 /* SansSomethingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SansSomethingTests.m; sourceTree = "<group>"; };
+		7BBC95821946554400C0A304 /* SyrahUI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SyrahUI.xcodeproj; path = ../../git/FinderSyrahUI/SyrahUI.xcodeproj; sourceTree = "<group>"; };
 		7BC10D48181EE2200031D473 /* sansTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = sansTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BC10D4D181EE2210031D473 /* sans+Demo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "sans+Demo.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7BC10D64181EE2B20031D473 /* sans.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sans.h; sourceTree = "<group>"; };
@@ -73,11 +124,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7B99B200193BD4F2001AADF5 /* Frameworks */ = {
+		7BBC95341946257200C0A304 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B99B201193BD500001AADF5 /* libAtoZAutoBox.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BBC95491946257300C0A304 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BBC95541946257300C0A304 /* libSansSomething.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,46 +150,89 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7B99B1F8193BD4BA001AADF5 /* Products */ = {
+		7B47C5171948A6DA00CF8D9D /* SansStatus */ = {
 			isa = PBXGroup;
 			children = (
-				7B99B1FD193BD4BB001AADF5 /* libAtoZAutoBox.a */,
-				7B99B1FF193BD4BB001AADF5 /* AtoZAutoBoxTests.octest */,
+				7B47C5191948A6DA00CF8D9D /* SansStatus-Info.plist */,
+				7BBC95461946257300C0A304 /* SansSomething.m */,
 			);
-			name = Products;
+			name = SansStatus;
+			path = SansPluginExample;
 			sourceTree = "<group>";
 		};
 		7BBA4F4419163294003E0219 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				7B35D0A9190CF8FA00D818BC /* DeveloperLib.xcconfig */,
-				7BAA864A19029AE3007D9AAD /* libsans-info.plist */,
 				7B53A94F188DDF860065DE13 /* scratch */,
-				7BE03780188DAEF000C2E747 /* SansNib */,
-				ECE3B2011235F1B800406672 /* Products */,
 			);
 			name = Other;
+			sourceTree = "<group>";
+		};
+		7BBC95411946257300C0A304 /* SansSomething */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SansSomething;
+			sourceTree = "<group>";
+		};
+		7BBC95551946257300C0A304 /* SansSomethingTests */ = {
+			isa = PBXGroup;
+			children = (
+				7BBC955B1946257400C0A304 /* SansSomethingTests.m */,
+				7BBC95561946257300C0A304 /* Supporting Files */,
+			);
+			path = SansSomethingTests;
+			sourceTree = "<group>";
+		};
+		7BBC95561946257300C0A304 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7BBC95571946257300C0A304 /* SansSomethingTests-Info.plist */,
+				7BBC95581946257300C0A304 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7BBC95831946554400C0A304 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7BBC95881946554400C0A304 /* SyrahUI.sans */,
+				7BBC958A1946554400C0A304 /* SyrahTest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		ECE3B1F21235F1AA00406672 = {
 			isa = PBXGroup;
 			children = (
-				7B99B1F7193BD4BA001AADF5 /* AtoZAutoBox.xcodeproj */,
+				ECE3B2011235F1B800406672 /* Products */,
+				7BBC95821946554400C0A304 /* SyrahUI.xcodeproj */,
 				7BC10D64181EE2B20031D473 /* sans.h */,
+				7B2E9F8519509D990075EC79 /* sans.conf.plist */,
+				7B2E9F861950A56A0075EC79 /* sans.env.sh */,
 				7BC10D65181EE2B20031D473 /* sans.m */,
 				7B0F47A11939F4E9007D81DF /* sans+Categories.m */,
 				7B9C2E9218B6A86F00D40C99 /* sans+Window.m */,
 				7B49615018BB2B4C00E5A459 /* sans+List.m */,
 				7BBA4F4419163294003E0219 /* Other */,
 				7BC10D4D181EE2210031D473 /* sans+Demo.m */,
+				7B47C5171948A6DA00CF8D9D /* SansStatus */,
+				7BBC95411946257300C0A304 /* SansSomething */,
+				7BBC95551946257300C0A304 /* SansSomethingTests */,
 			);
 			sourceTree = "<group>";
 		};
 		ECE3B2011235F1B800406672 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				7B35D0A9190CF8FA00D818BC /* DeveloperLib.xcconfig */,
+				7BAA864A19029AE3007D9AAD /* libsans-info.plist */,
+				7BE03780188DAEF000C2E747 /* SansNib */,
 				7BC10D48181EE2200031D473 /* sansTest */,
 				7BC10D89181EE56E0031D473 /* libsans.dylib */,
+				7BBC95391946257200C0A304 /* libSansSomething.a */,
+				7BBC954C1946257300C0A304 /* SansSomethingTests.xctest */,
+				7B47C50F1948A6DA00CF8D9D /* SansPluginExample.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,6 +240,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		7BBC95361946257200C0A304 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7BC10D87181EE56E0031D473 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -149,7 +257,77 @@
 		};
 /* End PBXHeadersBuildPhase section */
 
+/* Begin PBXLegacyTarget section */
+		7B2E9F871950A95E0075EC79 /* SansTemplates */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = templates;
+			buildConfigurationList = 7B2E9F881950A95E0075EC79 /* Build configuration list for PBXLegacyTarget "SansTemplates" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "$(SRCROOT)";
+			dependencies = (
+			);
+			name = SansTemplates;
+			passBuildSettingsInEnvironment = 1;
+			productName = SansTemplates;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
+		7B47C50E1948A6DA00CF8D9D /* SansPluginExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B47C5221948A6DA00CF8D9D /* Build configuration list for PBXNativeTarget "SansPluginExample" */;
+			buildPhases = (
+				7B47C50B1948A6DA00CF8D9D /* Sources */,
+				7B47C50D1948A6DA00CF8D9D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SansPluginExample;
+			productName = SansPluginExample;
+			productReference = 7B47C50F1948A6DA00CF8D9D /* SansPluginExample.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		7BBC95381946257200C0A304 /* SansSomething */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BBC95631946257400C0A304 /* Build configuration list for PBXNativeTarget "SansSomething" */;
+			buildPhases = (
+				7BBC95331946257200C0A304 /* Sources */,
+				7BBC95341946257200C0A304 /* Frameworks */,
+				7BBC95351946257200C0A304 /* CopyFiles */,
+				7BBC95361946257200C0A304 /* Headers */,
+				7BBC95371946257200C0A304 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SansSomething;
+			productName = SansSomething;
+			productReference = 7BBC95391946257200C0A304 /* libSansSomething.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		7BBC954B1946257300C0A304 /* SansSomethingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BBC95651946257400C0A304 /* Build configuration list for PBXNativeTarget "SansSomethingTests" */;
+			buildPhases = (
+				7BBC95481946257300C0A304 /* Sources */,
+				7BBC95491946257300C0A304 /* Frameworks */,
+				7BBC954A1946257300C0A304 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7BBC95531946257300C0A304 /* PBXTargetDependency */,
+			);
+			name = SansSomethingTests;
+			productName = SansSomethingTests;
+			productReference = 7BBC954C1946257300C0A304 /* SansSomethingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7BC10D47181EE2200031D473 /* libsans demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7BC10D53181EE2210031D473 /* Build configuration list for PBXNativeTarget "libsans demo" */;
@@ -175,7 +353,6 @@
 				7BC10D87181EE56E0031D473 /* Headers */,
 				7BC6EF78182503FF004744CD /* ShellScript */,
 				7BE0377F188DAE1900C2E747 /* Copy Template Files To Developer Folders */,
-				7B99B200193BD4F2001AADF5 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -192,7 +369,15 @@
 		ECE3B1F41235F1AA00406672 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0600;
+				TargetAttributes = {
+					7B2E9F871950A95E0075EC79 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					7BBC954B1946257300C0A304 = {
+						TestTargetID = 7BC10D88181EE56E0031D473;
+					};
+				};
 			};
 			buildConfigurationList = ECE3B1F71235F1AA00406672 /* Build configuration list for PBXProject "sans" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -206,36 +391,87 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 7B99B1F8193BD4BA001AADF5 /* Products */;
-					ProjectRef = 7B99B1F7193BD4BA001AADF5 /* AtoZAutoBox.xcodeproj */;
+					ProductGroup = 7BBC95831946554400C0A304 /* Products */;
+					ProjectRef = 7BBC95821946554400C0A304 /* SyrahUI.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
 				7BC10D47181EE2200031D473 /* libsans demo */,
 				7BC10D88181EE56E0031D473 /* libsans */,
+				7BBC95381946257200C0A304 /* SansSomething */,
+				7BBC953E1946257300C0A304 /* SansSomethingAggregate */,
+				7BBC954B1946257300C0A304 /* SansSomethingTests */,
+				7B47C50E1948A6DA00CF8D9D /* SansPluginExample */,
+				7B2E9F871950A95E0075EC79 /* SansTemplates */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		7B99B1FD193BD4BB001AADF5 /* libAtoZAutoBox.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libAtoZAutoBox.a;
-			remoteRef = 7B99B1FC193BD4BB001AADF5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7B99B1FF193BD4BB001AADF5 /* AtoZAutoBoxTests.octest */ = {
+		7BBC95881946554400C0A304 /* SyrahUI.sans */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = AtoZAutoBoxTests.octest;
-			remoteRef = 7B99B1FE193BD4BB001AADF5 /* PBXContainerItemProxy */;
+			path = SyrahUI.sans;
+			remoteRef = 7BBC95871946554400C0A304 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7BBC958A1946554400C0A304 /* SyrahTest */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = SyrahTest;
+			remoteRef = 7BBC95891946554400C0A304 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
 
+/* Begin PBXResourcesBuildPhase section */
+		7B47C50D1948A6DA00CF8D9D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BBC954A1946257300C0A304 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BBC955A1946257400C0A304 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXShellScriptBuildPhase section */
+		7BBC95371946257200C0A304 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -e\n\nmkdir -p \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers\"\n\n# Link the \"Current\" version to \"A\"\n/bin/ln -sfh A \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/${PRODUCT_NAME}\"\n\nif [ ! -d \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" ]; then\n  echo \"warning: No public headers exposed, magic library?\"\n  mkdir -p \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\"\nfi\n\n# The -a ensures that the headers maintain the source modification date so that we don't constantly\n# cause propagating rebuilds of files that import these headers.\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework/Versions/A/Headers\"\n           ";
+			showEnvVarsInLog = 0;
+		};
+		7BBC953D1946257300C0A304 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -e\nset +u\n# Avoid recursively calling this script.\nif [[ $SF_MASTER_SCRIPT_RUNNING ]]\nthen\nexit 0\nfi\nset -u\nexport SF_MASTER_SCRIPT_RUNNING=1\n\nSF_TARGET_NAME=${PROJECT_NAME}\nSF_EXECUTABLE_PATH=\"lib${SF_TARGET_NAME}.a\"\nSF_WRAPPER_NAME=\"${SF_TARGET_NAME}.framework\"\n\n# The following conditionals come from\n# https://github.com/kstenerud/iOS-Universal-Framework\n\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]\nthen\nSF_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]\nthen\nSF_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\nif [[ \"$SF_SDK_PLATFORM\" = \"iphoneos\" ]]\nthen\nSF_OTHER_PLATFORM=iphonesimulator\nelse\nSF_OTHER_PLATFORM=iphoneos\nfi\n\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$SF_SDK_PLATFORM$ ]]\nthen\nSF_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${SF_OTHER_PLATFORM}\"\nelse\necho \"Could not find platform name from build products directory: $BUILT_PRODUCTS_DIR\"\nexit 1\nfi\n\n# Build the other platform.\nxcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" -target \"${TARGET_NAME}\" -configuration \"${CONFIGURATION}\" -sdk ${SF_OTHER_PLATFORM}${SF_SDK_VERSION} BUILD_DIR=\"${BUILD_DIR}\" OBJROOT=\"${OBJROOT}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\" $ACTION\n\n# Smash the two static libraries into one fat binary and store it in the .framework\nxcrun lipo -create \"${BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_EXECUTABLE_PATH}\" -output \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n\n# Copy the binary to the other architecture folder to have a complete framework in both.\ncp -a \"${BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\" \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}/Versions/A/${SF_TARGET_NAME}\"\n\n# Create build folder and copy everything there\nPROJECT_PATH=$(cd \"${PROJECT_FILE_PATH}/../\" &2> /dev/null; echo $PWD; cd - &2> /dev/null)\nmkdir -p \"${PROJECT_PATH}/build\"\ncp -r \"${SF_OTHER_BUILT_PRODUCTS_DIR}/${SF_WRAPPER_NAME}\" \"${PROJECT_PATH}/build/\"";
+			showEnvVarsInLog = 0;
+		};
 		7BC6EF78182503FF004744CD /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +488,29 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7B47C50B1948A6DA00CF8D9D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BBC95331946257200C0A304 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BBC95471946257300C0A304 /* SansSomething.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7BBC95481946257300C0A304 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BBC955C1946257400C0A304 /* SansSomethingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7BC10D44181EE2200031D473 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -274,6 +533,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7BBC95401946257300C0A304 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7BBC95381946257200C0A304 /* SansSomething */;
+			targetProxy = 7BBC953F1946257300C0A304 /* PBXContainerItemProxy */;
+		};
+		7BBC95531946257300C0A304 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7BBC95381946257200C0A304 /* SansSomething */;
+			targetProxy = 7BBC95521946257300C0A304 /* PBXContainerItemProxy */;
+		};
 		7BBE68321823D6510044B655 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7BC10D88181EE56E0031D473 /* libsans */;
@@ -281,7 +550,392 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		7BBC95581946257300C0A304 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7BBC95591946257300C0A304 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		7B2E9F891950A95E0075EC79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DEBUGGING_SYMBOLS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		7B2E9F8A1950A95E0075EC79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7B47C51E1948A6DA00CF8D9D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SansPluginExample/SansPluginExample-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "SansPluginExample/SansPluginExample-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		7B47C51F1948A6DA00CF8D9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SansPluginExample/SansPluginExample-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "SansPluginExample/SansPluginExample-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		7BBC955D1946257400C0A304 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				DSTROOT = /tmp/SansSomething.dst;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SansSomething/SansSomething-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7BBC955E1946257400C0A304 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/SansSomething.dst;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SansSomething/SansSomething-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "$(PROJECT_NAME)Headers";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7BBC955F1946257400C0A304 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		7BBC95601946257400C0A304 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7BBC95611946257400C0A304 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/libsans.dylib";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SansSomething/SansSomething-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "SansSomethingTests/SansSomethingTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		7BBC95621946257400C0A304 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/libsans.dylib";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SansSomething/SansSomething-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "SansSomethingTests/SansSomethingTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		7BC10D54181EE2210031D473 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -309,6 +963,7 @@
 		7BC10DA4181EE5700031D473 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DEPLOYMENT_POSTPROCESSING = YES;
 				DSTROOT = /;
@@ -324,19 +979,17 @@
 					__TEXT,
 					__info_plist,
 					"libsans-info.plist",
-					"-sub_library",
-					libAtoZAutoBox,
 					"-framework",
 					AtoZ,
 				);
 				PRODUCT_NAME = sans;
-				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
 			};
 			name = Debug;
 		};
 		7BC10DA5181EE5700031D473 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
 				DEPLOYMENT_POSTPROCESSING = YES;
 				DSTROOT = /;
@@ -351,23 +1004,22 @@
 					__TEXT,
 					__info_plist,
 					"libsans-info.plist",
-					"-sub_library",
-					libAtoZAutoBox,
 					"-framework",
 					AtoZ,
 				);
 				PRODUCT_NAME = sans;
-				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include;
 			};
 			name = Release;
 		};
 		ECE3B1F51235F1AA00406672 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/Frameworks";
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -384,10 +1036,12 @@
 		ECE3B1F61235F1AA00406672 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(HOME)/Library/Frameworks";
 				GCC_C_LANGUAGE_STANDARD = c11;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -404,6 +1058,51 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7B2E9F881950A95E0075EC79 /* Build configuration list for PBXLegacyTarget "SansTemplates" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B2E9F891950A95E0075EC79 /* Debug */,
+				7B2E9F8A1950A95E0075EC79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B47C5221948A6DA00CF8D9D /* Build configuration list for PBXNativeTarget "SansPluginExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B47C51E1948A6DA00CF8D9D /* Debug */,
+				7B47C51F1948A6DA00CF8D9D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BBC95631946257400C0A304 /* Build configuration list for PBXNativeTarget "SansSomething" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BBC955D1946257400C0A304 /* Debug */,
+				7BBC955E1946257400C0A304 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BBC95641946257400C0A304 /* Build configuration list for PBXAggregateTarget "SansSomethingAggregate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BBC955F1946257400C0A304 /* Debug */,
+				7BBC95601946257400C0A304 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BBC95651946257400C0A304 /* Build configuration list for PBXNativeTarget "SansSomethingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BBC95611946257400C0A304 /* Debug */,
+				7BBC95621946257400C0A304 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7BC10D53181EE2210031D473 /* Build configuration list for PBXNativeTarget "libsans demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

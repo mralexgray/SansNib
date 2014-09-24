@@ -3,78 +3,99 @@
 #import "sans.h"
 
 #define SPLIT_CONTAINS(SPLIT,X) [[@#SPLIT componentsSeparatedByString:@"|"]containsObject:X]
-#define PRIVATE(K,...) property (readonly) K __VA_ARGS__;
 
-@interface Sans() <NSApplicationDelegate>
 
-@PRIVATE( _List, handlers,
-                 buttons)
-@PRIVATE( _Main, window)
-@PRIVATE( _Lens, layer)
-@PRIVATE( _View, view)
+@interface SansFactory : NSObject <NSApplicationDelegate,Sans> @end
 
-@PRIVATE( _Menu, aboutM,            fileM,     editM,     helpM,
-                 servicesM)
-@PRIVATE( _SubM, aboutSubM,       fileSubM,  editSubM, helpSubM,
-                 aboutAppSubM,    openSubM,            helpSubM1,
-                 preferencesSubM, saveSubM,
-                 servicesSubM,
-                 hideSubM,
-                 hideOthersSubM,
-                 showAllSubM,
-                 quitSubM)
-@end
+//typedef Sans* _; + (_) sans; + (_Void) run; @end
 
-@implementation Sans static Sans *nibless; /** static singleton rules this house */
+#define BUNDLEDIR @"~/Library/Bundles".stringByStandardizingPath
 
-+ sans { return sans_APP, DISPATCHONCE([NSApp setMainMenu:MENUTITLED(@"")]; nibless = super.alloc; nibless = nibless.init;), SETPOLICY, nibless; }
+id<Sans> Sans() { return [SansFactory sans]; }
 
-- init {  return self = super.init && self == nibless ? ({ sans_APP.
+@implementation SansFactory
+{
+ _Menu aboutM, fileM, editM, helpM, servicesM;
+_SubM aboutSubM, fileSubM, editSubM, helpSubM, aboutAppSubM, openSubM, helpSubM1, preferencesSubM, saveSubM, servicesSubM, hideSubM, hideOthersSubM, showAllSubM, quitSubM;
+}
+@synthesize plugins, handlers, buttons, window, layer, view;
+//{
+//
+// XList plugins, handlers, buttons; _Main window; _Lens layer; _View view; _Menu aboutM, fileM, editM, helpM, servicesM;
+//_SubM aboutSubM, fileSubM, editSubM, helpSubM, aboutAppSubM, openSubM, helpSubM1, preferencesSubM, saveSubM, servicesSubM, hideSubM, hideOthersSubM, showAllSubM, quitSubM;
 
-    mainMenu.itemArray = @[  _aboutSubM = MENUITEM_NAMED(NULL,        placehoder, nil, _aboutM = MENUTITLED(About Sans)),
-                              _fileSubM = MENUITEM_NAMED(File,        placehoder, nil,  _fileM = MENUTITLED(Work It!)),
-                              _editSubM = MENUITEM_NAMED(Edit,        placehoder, nil,  _editM = MENUTITLED(Twerk It!)),
-                              _helpSubM = MENUITEM_NAMED(Help,        placehoder, nil,  _helpM = MENUTITLED(Hates It!)) ];
-  _aboutM.itemArray = @[  _aboutAppSubM = MENUITEMACTION(ABOUTRPROCESS,                       nil, NULL         /* self.aMenu*/), MENU_SEPERATOR,
-                       _preferencesSubM = MENUITEMACTION(Beep!, @",", ^(NSMenuItem* item){ NSBeep();                              /* [AZTalker say:@"Preferences"]; */ }), MENU_SEPERATOR,
-                          _servicesSubM = MENUITEM_NAMED(Services,    placehoder,             nil, nil),    MENU_SEPERATOR,
-                              _hideSubM = MENUITEM_NAMED(Hide,        hide:,                  nil, nil),
-                        _hideOthersSubM = MENUITEM_NAMED(Hide Others, hideOtherApplications:, nil,  nil),
-                           _showAllSubM = MENUITEM_NAMED(Show All,    unhideAllApplications:, nil,  nil),   MENU_SEPERATOR,
-                              _quitSubM = MENUITEM_NAMED(Quit,          terminate:,           @"q", nil)];
-  _fileM.itemArray = @[       _openSubM = MENUITEM_NAMED(Open...,       openFile:,            @"o", nil),   MENU_SEPERATOR,
-                              _saveSubM = MENUITEMACTION(Save, @"s",^(NSMenuItem*m){ /* [AZTalker say:[m.title withString:@" not implemented"]]; */ }) ];
-  _editM.itemArray = @[                   MENUITEM_NAMED(Cut,          cut:,            @"x", nil),
-                                          MENUITEM_NAMED(Copy,         copy:,           @"c", nil),
-                                          MENUITEM_NAMED(Paste,        paste:,          @"v", nil),
-                                          MENUITEM_NAMED(Select All,   selectAll:,      @"a", nil) ];
-  _helpM.itemArray = @[      _helpSubM1 = MENUITEM_NAMED(Help!,        placehoder,      @"h", nil) ];
+//}
+  static SansFactory* sans; /** static singleton rules this house */
 
-  [@[_hideSubM, _hideOthersSubM, _showAllSubM, _quitSubM] makeObjectsPerformSelector:@selector(setTarget:) withObject:NSApp];
-  [NSApp setServicesMenu:_servicesSubM.submenu = _servicesM = MENUTITLED(Services)]; [NSApp setHelpMenu:_helpM];
-  [_handlers  = NSArrayController.new setContent:NSMutableArray.new];
-  [_buttons   = NSArrayController.new setContent:NSMutableArray.new]; _window = [objc_getClass("SansNibWindow") new];
+- (XList) plugins { return plugins = plugins ?: ({
 
-  [sans_NCENTER addObserverForName:NSApplicationDidFinishLaunchingNotification object:nil queue:NSOperationQueue.mainQueue
-                        usingBlock:^(NSNotification *x) { setCuteIcon(); }];   [NSApp setDelegate:self]; nibless; }) : nil;
+    [plugins = NSArrayController.new setContent:@[].mutableCopy];
+
+    for (_Text p in [_FILEM contentsOfDirectoryAtPath:BUNDLEDIR error:nil]) {  _Bndl b; _Errr e; BOOL x;
+
+      [p hasSuffix:@"sans"] && (b = [NSBundle bundleWithPath:[BUNDLEDIR stringByAppendingPathComponent:p]])
+        ? (x = [b preflightAndReturnError:&e]) && !e   ? [plugins addObject:b]
+        : NSLog(@"Problem preflighting %@.. %@", p, e) : nil;
+    }
+    NSLog(@"SansNib plugins:%lu [%@]", [plugins.arrangedObjects count], [[plugins.arrangedObjects valueForKeyPath:@"principalClass"]componentsJoinedByString:@","]);
+
+  plugins; });
+
+}
++ (_Kind) sans { return sans = sans ?: ({  _NSAPP, DISPATCHONCE([NSApp setMainMenu:_MENU_NAMED(@"")]; sans = super.alloc; sans = [sans _init];), SETPOLICY, sans; }); }
+
+- _init {  return self = super.init && self == sans ? ({ _NSAPP.
+
+    mainMenu.itemArray = @[  aboutSubM = _SUBM_NAMED(NULL,        placehoder, nil, aboutM = _MENU_NAMED(About Sans)),
+                              fileSubM = _SUBM_NAMED(File,        placehoder, nil,  fileM = _MENU_NAMED(Work It!)),
+                              editSubM = _SUBM_NAMED(Edit,        placehoder, nil,  editM = _MENU_NAMED(Twerk It!)),
+                              helpSubM = _SUBM_NAMED(Help,        placehoder, nil,  helpM = _MENU_NAMED(Hates It!)) ];
+  aboutM.itemArray = @[   aboutAppSubM = MENUITEMACTION(ABOUT_,                       nil, NULL         /* self.aMenu*/), _MENU_DIV,
+                       preferencesSubM = MENUITEMACTION(Beep!, @",", ^(NSMenuItem* item){ NSBeep();                              /* [AZTalker say:@"Preferences"]; */ }), _MENU_DIV,
+                          servicesSubM = _SUBM_NAMED(Services,    placehoder,             nil, nil),    _MENU_DIV,
+                              hideSubM = _SUBM_NAMED(Hide,        hide:,                  nil, nil),
+                        hideOthersSubM = _SUBM_NAMED(Hide Others, hideOtherApplications:, nil,  nil),
+                           showAllSubM = _SUBM_NAMED(Show All,    unhideAllApplications:, nil,  nil),   _MENU_DIV,
+                              quitSubM = _SUBM_NAMED(Quit,          terminate:,           @"q", nil)];
+  fileM.itemArray = @[        openSubM = _SUBM_NAMED(Open...,       openFile:,            @"o", nil),   _MENU_DIV,
+                              saveSubM = MENUITEMACTION(Save, @"s",^(NSMenuItem*m){ /* [AZTalker say:[m.title withString:@" not implemented"]]; */ }) ];
+  editM.itemArray = @[                   _SUBM_NAMED(Cut,          cut:,            @"x", nil),
+                                         _SUBM_NAMED(Copy,         copy:,           @"c", nil),
+                                         _SUBM_NAMED(Paste,        paste:,          @"v", nil),
+                                         _SUBM_NAMED(Select All,   selectAll:,      @"a", nil) ];
+  helpM.itemArray = @[       helpSubM1 = _SUBM_NAMED(Help!,        placehoder,      @"h", nil) ];
+
+  [@[hideSubM, hideOthersSubM, showAllSubM, quitSubM] makeObjectsPerformSelector:@selector(setTarget:) withObject:NSApp];
+  [NSApp setServicesMenu:servicesSubM.submenu = servicesM = _MENU_NAMED(Services)]; [NSApp setHelpMenu:helpM];
+  [handlers = NSArrayController.new setContent:@[].mutableCopy];
+  [buttons  = NSArrayController.new setContent:@[].mutableCopy]; window = [objc_getClass("SansNibWindow") new];
+
+  for (_Bndl b in self.plugins.arrangedObjects) { id x;
+      [fileM addItem:x = [[NSMenuItem _ALLOCMENUZONE] initWithTitle:b.bundleIdentifier action:@selector(GO) keyEquivalent:@""]];
+    [x setTarget:[b principalClass]];
+  }
+  [_NCNTR addObserverForName:NSApplicationDidFinishLaunchingNotification object:nil queue:NSOperationQueue.mainQueue
+                  usingBlock:^(NSNotification *x) { setCuteIcon(); }];
+                  [NSApp setDelegate:(id)self]; sans; }) : nil;
 }
 
-+ forwardingTargetForSelector:(SEL)s { _Text x = NSStringFromSelector(s); return
+- forwardingTargetForSelector:(SEL)s { _Text x = NSStringFromSelector(s); return
 
   SPLIT_CONTAINS(addButton:block:,             x) ? objc_getClass("SansNibWindowButton") :
   SPLIT_CONTAINS(addTableWith:|addWebviewWith:,x) ? self.view.subviews.lastObject ?: self.view : // was  lastSplitPane
-  SPLIT_CONTAINS(handlers|buttons|window,      x) ? Sans.sans :
-  SPLIT_CONTAINS(hitLayer|layer|view,          x) ? Sans.window : [super forwardingTargetForSelector:s];
+//  SPLIT_CONTAINS(handlers|buttons|window,      x) ? self.sans :
+//  SPLIT_CONTAINS(hitLayer|layer|view,          x) ? self.sans.window :
+  [super forwardingTargetForSelector:s];
 }
 
-+ (_Void) run                         { [SANS.window orderFrontRegardless]; [NSApp run]; }
+- (_Void) run                         { [[self window] orderFrontRegardless]; [NSApp run]; }
 
-- (BOOL)applicationShouldHandleReopen:(NSApplication*)a hasVisibleWindows:(BOOL)f { setCuteIcon(); [self.class window]; }
+- (BOOL)applicationShouldHandleReopen:(NSApplication*)a hasVisibleWindows:(BOOL)f { setCuteIcon(); [self window]; }
 
 - (void(^)(NSMenuItem*)) aMenu {
 
  return // (void(^)(NSMenuItem*))
-        ^(NSMenuItem*menu){ [sans_APP orderFrontStandardAboutPanelWithOptions:
+        ^(NSMenuItem*menu){ [_NSAPP orderFrontStandardAboutPanelWithOptions:
 
 @{@"Credits": @"c/o Steve Van Voorst via fbcocoa list\nvia Bernie Wylde / Ken Shmidheiser.",
   @"ApplicationName":@"AtoZ Nibless Demo",
@@ -88,19 +109,19 @@
 //  };
 }
 
-+            addViewWithClass:(_Meta)k { _View v; return [self addViewWithSplit:v = k.new], v; }
+-            addViewWithClass:(_Meta)k { _View v; return [self addViewWithSplit:v = k.new], v; }
 
-+ (_Void) addViewWithSplit:(_View)v { _Splt s = [self.view.subviews.lastObject split];
+- (_Void) addViewWithSplit:(_View)v { _Splt s = [self.view.subviews.lastObject split];
 
   _View t = s.subviews[1]; v.frame = t.bounds; [t removeFromSuperview]; [s addSubview:v];
 }
-+ (_Void) setDockIcon:(_Pict)i      { NSImageView *iv;
+- (_Void) setDockIcon:(_Pict)i      { NSImageView *iv;
 
   sans_DOCK_TILE.contentView  = iv = [NSImageView.alloc initWithFrame:(NSRect){0,0,512,512}];
   iv.imageScaling             = NSImageScaleProportionallyUpOrDown;
   iv.image                    = i;   [sans_DOCK_TILE display];
 }
-+ (_Splt) split                     {  _View v = self.view;  return v.subviews.lastObject ?: ({ NSBox*halve;
+- (_Splt) split                     {  _View v = self.view;  return v.subviews.lastObject ?: ({ NSBox*halve;
 
     [v addSubview:halve = [NSBox.alloc initWithFrame:v.bounds]];
     [halve setFillColor:NSColor.blueColor];
@@ -112,7 +133,7 @@ void setCuteIcon(void){ NSLog(@"seeting cute icon",nil); NSRect r; NSImage * i; 
 
   (s = NSParagraphStyle.defaultParagraphStyle.mutableCopy).alignment = NSCenterTextAlignment;
   [NSGraphicsContext saveGraphicsState];
-  [Sans setDockIcon:({ [i = [NSImage.alloc initWithSize:(r = (NSRect){0,0,256,256}).size]lockFocus];
+  [Sans() setDockIcon:({ [i = [NSImage.alloc initWithSize:(r = (NSRect){0,0,256,256}).size]lockFocus];
   [sans_RANDOMCOLOR set]; NSRectFill(r);
   [[NSProcessInfo.processInfo.processName.uppercaseString substringToIndex:1] ?: @"A"
       drawAtPoint:NSZeroPoint                               withAttributes:@{
@@ -123,6 +144,10 @@ void setCuteIcon(void){ NSLog(@"seeting cute icon",nil); NSRect r; NSImage * i; 
     [i unlockFocus]; [NSGraphicsContext restoreGraphicsState]; i;
   })];
 }
+@implementation  NSObject (Sans)
+- (id<Sans>)sans { return [SansFactory sans]; }
+@end
+
 //+          (void) addEventBlock:(EventBlock)blk { [SANSNIB setValue:[SANSNIB.eventBlocks ?: @[] arrayByAddingObject:[blk copy]] forKey:@"eventBlocks"]; }
 
 
@@ -188,4 +213,24 @@ void setCuteIcon(void){ NSLog(@"seeting cute icon",nil); NSRect r; NSImage * i; 
         }
     }
 }
+
+#define PRIVATE(K,...) property (readonly) K __VA_ARGS__;
+
+//@PRIVATE( _Main, window)  @PRIVATE( _Lens, layer) @PRIVATE( _View, view)
+//
+//@PRIVATE( _Menu, aboutM,          fileM,     editM,     helpM,
+//                 servicesM)
+//@PRIVATE( _SubM, aboutSubM,       fileSubM,  editSubM, helpSubM,
+//                 aboutAppSubM,    openSubM,            helpSubM1,
+//                 preferencesSubM, saveSubM,
+//                 servicesSubM,
+//                 hideSubM,
+//                 hideOthersSubM,
+//                 showAllSubM,
+//                 quitSubM)
+//@PRIVATE( _List, handlers,
+//                 buttons)
+
 */
+
+

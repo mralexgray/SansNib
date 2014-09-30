@@ -1,13 +1,14 @@
 //
 //  JJApplication.h
-//  Nibless
+//  NiblessLeopard
 //
-//  Created by Jeffrey Johnson on 6/3/07.
+//  Created by Jeffrey Johnson on 11/22/07.
 //  Copyright 2007 Lap Cat Software. All rights reserved.
-//
 
-#import <Cocoa/Cocoa.h>
+@import AppKit;
+@interface JJApplication : NSApplication
+@end
 
-@interface JJApplication : NSApplication {}
 
+@interface JJApplicationDelegate : NSObject
 @end

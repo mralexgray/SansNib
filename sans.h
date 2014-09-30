@@ -1,5 +1,20 @@
 @import ObjectiveC; @import QuartzCore; @import WebKit; @import ExtObjC;
 
+
+/// BlockPropTDef ( o,O,nError, VoidError, void, NSError* error);
+#define BlockPropTDef(v,V,arname,TYPENAME,RET_TYPE,PARAMETERS...) typedef RET_TYPE(^TYPENAME)(PARAMETERS); @property (nonatomic,copy) TYPENAME v##arname; - (void)  set##V##arname:(TYPENAME)_
+
+/// BlockPropType ( o,O,nStartup, VoidError);
+#define BlockPropType(v,V,arname,TYPENAME) @property (nonatomic,copy) TYPENAME v##arname; - (void)  set##V##arname:(TYPENAME)_
+
+/// BlockProp(u,U,ntyped,void,);
+#define BlockProp(v,V,arname,RET_TYPE,PARAMETERS) @property (nonatomic,copy) RET_TYPE(^v##arname)(PARAMETERS); - (void)  set##V##arname:(RET_TYPE(^)(PARAMETERS))_
+
+
+
+
+
+
 /*! Sans is a dialect of Objective-C. It strives to be..
   
   Concise ... 

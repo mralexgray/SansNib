@@ -1,38 +1,66 @@
 //
 //  JJApplication.m
-//  Nibless
+//  NiblessLeopard
 //
-//  Created by Jeffrey Johnson on 6/3/07.
+//  Created by Jeffrey Johnson on 11/22/07.
 //  Copyright 2007 Lap Cat Software. All rights reserved.
 //
 
 #import "JJApplication.h"
-#import "JJApplicationDelegate.h"
+#import "JJMenuPopulator.h"
+
+@implementation JJApplicationDelegate
+
+#pragma mark NSApplication delegate
+
+-(void) applicationWillFinishLaunching:(NSNotification *)aNotification
+{
+	[JJMenuPopulator populateMainMenu];
+	
+	[[NSDocumentController sharedDocumentController] noteNewRecentDocumentURL:[NSURL fileURLWithPath:@"/Developer/About Xcode Tools.pdf"]];
+}
+
+-(void) applicationWillTerminate:(NSNotification *)aNotification
+{
+	[NSApp setDelegate:nil];
+}
+
+@end
+
+
 
 @implementation JJApplication
 
 #pragma mark NSObject
 
--(id) init {
-	if ((self = [super init])) {
-		// NSApplication might not have created an autorelease pool yet, so create our own.
-		NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-		
-		[self setDelegate:[[JJApplicationDelegate alloc] init]];
-		
-		[pool release];
+-(id) init
+{
+	self = [super init];
+	if (self != nil)
+	{
+		[self setDelegate:(id)JJApplicationDelegate.new];
 	}
 	return self;
 }
 
--(void) dealloc {
-	id delegate = [self delegate];
-	if (delegate) {
-		[self setDelegate:nil];
-		[delegate release];
-	}
-	
-	[super dealloc];
+@end
+
+
+
+#import <objc/runtime.h>
+#import "NSBundleJJAdditions.h"
+
+int main(int argc, char *argv[], char**argp ){	@autoreleasepool {
+
+      Class bundleClass = [NSBundle class];
+      Method originalMethod = class_getClassMethod(bundleClass, @selector(loadNibNamed:owner:));
+      Method categoryMethod = class_getClassMethod(bundleClass, @selector(JJ_loadNibNamed:owner:));
+      method_exchangeImplementations(originalMethod, categoryMethod);
+
+  }
+  return NSApplicationMain(argc, (const char **)argv) ?: EXIT_SUCCESS;
 }
 
-@end
+
+
+NSAPp

@@ -1,14 +1,39 @@
 @import ObjectiveC; @import QuartzCore; @import WebKit; @import ExtObjC;
 
+@import CloudKit;
 
-/// BlockPropTDef ( o,O,nError, VoidError, void, NSError* error);
-#define BlockPropTDef(v,V,arname,TYPENAME,RET_TYPE,PARAMETERS...) typedef RET_TYPE(^TYPENAME)(PARAMETERS); @property (nonatomic,copy) TYPENAME v##arname; - (void)  set##V##arname:(TYPENAME)_
+    /*! Simplified blockpropertydeclaration, with proper auto completion.
 
-/// BlockPropType ( o,O,nStartup, VoidError);
-#define BlockPropType(v,V,arname,TYPENAME) @property (nonatomic,copy) TYPENAME v##arname; - (void)  set##V##arname:(TYPENAME)_
+    @param v            LOWERCASE of ONLY the FIRST character of the generated property's name
+    @param V            UPPERCASE of ONLY the FIRST character of the generated property's name
+    @param arname       the generated property's name WITHOUT the FIRST character
+    @param TYPENAME     this name will define (typedef) a new block type
+    @param RET_TYPE     this is the blocks return type
+    @param PARAMETERS   a single, or variadic list of parameters which should be passed to the block
 
-/// BlockProp(u,U,ntyped,void,);
-#define BlockProp(v,V,arname,RET_TYPE,PARAMETERS) @property (nonatomic,copy) RET_TYPE(^v##arname)(PARAMETERS); - (void)  set##V##arname:(RET_TYPE(^)(PARAMETERS))_
+    USAGE: BlockPropTDef ( p,P,ropertyName, NewBlockType, void, id x, NSError* err); ->
+
+      typedef void(^NewBlockType)(id x,NSError* err);
+      @property (nonatomic,copy) NewBlockType propertyName;
+      - (void) setPropertyName:(NewBlockType)_;
+
+    */  #define BlockPropTDef(v,V,arname,TYPENAME,RET_TYPE,PARAMETERS...) typedef RET_TYPE(^TYPENAME)(PARAMETERS); @property (nonatomic,copy) TYPENAME v##arname; - (void)  set##V##arname:(TYPENAME)_
+
+    /*! Use this for declarations/subsequent declarations where the correct block type already exists.
+        USAGE: @code BlockPropType (p,P,ropertyName, PredefinedBlockType);
+
+      @property (nonatomic,copy) PredefinedBlockType propertyName;
+      - (void) setPropertyName:(PredefinedBlockType)_;
+
+    */  #define BlockPropType(v,V,arname,TYPENAME) @property (nonatomic,copy) TYPENAME v##arname; - (void)  set##V##arname:(TYPENAME)_
+
+    /*  Use this when you just want simple, untyped block property
+      USAGE: @code BlockProp(u,U,ntyped,void,);
+
+        @property (nonatomic,copy) void(^untyped)();
+      - (void) setUntyped:(void(^)())_;
+
+    */  #define BlockProp(v,V,arname,RET_TYPE,PARAMETERS) @property (nonatomic,copy) RET_TYPE(^v##arname)(PARAMETERS); - (void)  set##V##arname:(RET_TYPE(^)(PARAMETERS))_
 
 
 

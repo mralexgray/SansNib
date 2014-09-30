@@ -207,9 +207,9 @@
 			children = (
 				ECE3B2011235F1B800406672 /* Products */,
 				7BBC95821946554400C0A304 /* SyrahUI.xcodeproj */,
-				7BC10D64181EE2B20031D473 /* sans.h */,
 				7B2E9F8519509D990075EC79 /* sans.conf.plist */,
 				7B2E9F861950A56A0075EC79 /* sans.env.sh */,
+				7BC10D64181EE2B20031D473 /* sans.h */,
 				7BC10D65181EE2B20031D473 /* sans.m */,
 				7B0F47A11939F4E9007D81DF /* sans+Categories.m */,
 				7B9C2E9218B6A86F00D40C99 /* sans+Window.m */,
@@ -483,7 +483,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\n# echo \"${SYSROOT}\"\n\n#sudo ln -sF \"${CODESIGNING_FOLDER_PATH}\" \"${SDK_DIR}/usr/lib/\"\n\n#sudo ln -sF \"${PUBLIC_HEADERS_FOLDER_PATH}/${PRODUCT_NAME}.h\" \"${SDK_DIR}/usr/include/\"\n\n##sudo ln -sF \"${CODESIGNING_FOLDER_PATH}\" \"/usr/lib/\"\n#sudo ln -sF \"${PUBLIC_HEADERS_FOLDER_PATH}/${PRODUCT_NAME}.h\" \"/usr/include/\"\n\n#source ~/.zshrc\n#sudo ln -sF \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"$SDKFRAMEWORKS/\"\n";
+			shellScript = "/xbin/appledoc \\\n--project-name \"${PROJECT_NAME}\" \\\n--project-company \"mrGray.com\" \\\n--company-id \"${DEVELOPER_DOMAIN}\" \\\n--output \"${SRCROOT}/docs/\" \\\n--logformat xcode\n\n# echo \"${SYSROOT}\"\n\n#sudo ln -sF \"${CODESIGNING_FOLDER_PATH}\" \"${SDK_DIR}/usr/lib/\"\n\n#sudo ln -sF \"${PUBLIC_HEADERS_FOLDER_PATH}/${PRODUCT_NAME}.h\" \"${SDK_DIR}/usr/include/\"\n\n##sudo ln -sF \"${CODESIGNING_FOLDER_PATH}\" \"/usr/lib/\"\n#sudo ln -sF \"${PUBLIC_HEADERS_FOLDER_PATH}/${PRODUCT_NAME}.h\" \"/usr/include/\"\n\n#source ~/.zshrc\n#sudo ln -sF \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}\" \"$SDKFRAMEWORKS/\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1029,6 +1029,7 @@
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
 				STRIP_INSTALLED_PRODUCT = NO;
 				STRIP_STYLE = "non-global";
 			};
@@ -1052,6 +1053,7 @@
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
 				STRIP_INSTALLED_PRODUCT = NO;
 				STRIP_STYLE = "non-global";
 			};

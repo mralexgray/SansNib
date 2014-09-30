@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ABSTRACT</key>
+	<string>THIS IS A CONFIG FILE for libsans.  this defines the language.  this is the bible.</string>
+	<key>ALIASES</key>
+	<dict>
+		<key>DEFS</key>
+		<dict>
+			<key>BOOL </key>
+			<string>IsIt</string>
+			<key>CALayer * </key>
+			<string>Layr</string>
+			<key>CGFloat </key>
+			<string>Flot</string>
+			<key>Class </key>
+			<string>Meta</string>
+			<key>NSArray * </key>
+			<string>List</string>
+			<key>NSBundle * </key>
+			<string>Bndl</string>
+			<key>NSColor * </key>
+			<string>Colr</string>
+			<key>NSError * </key>
+			<string>Errr</string>
+			<key>NSEvent * </key>
+			<string>Evnt</string>
+			<key>NSImage * </key>
+			<string>Pict</string>
+			<key>NSInteger </key>
+			<string>SInt</string>
+			<key>NSMenu * </key>
+			<string>Menu</string>
+			<key>NSMenuItem * </key>
+			<string>SubM</string>
+			<key>NSOutlineView * </key>
+			<string>OutV</string>
+			<key>NSSplitView * </key>
+			<string>Splt</string>
+			<key>NSString * </key>
+			<string>Text</string>
+			<key>NSString*</key>
+			<string>_Text</string>
+			<key>NSTableColumn * </key>
+			<string>TCol</string>
+			<key>NSTableView * </key>
+			<string>TblV</string>
+			<key>NSUInteger </key>
+			<string>UInt</string>
+			<key>NSView * </key>
+			<string>View</string>
+			<key>NSWindow * </key>
+			<string>Wind</string>
+			<key>SArrayController *</key>
+			<string>XList</string>
+			<key>WebView * </key>
+			<string>WebV</string>
+			<key>id</key>
+			<string>_ObjC</string>
+			<key>void </key>
+			<string>Void</string>
+		</dict>
+		<key>INFO</key>
+		<string>1 (one) KNOWN type... followed by it's new ALIAS... PER LINE</string>
+	</dict>
+</dict>
+</plist>
